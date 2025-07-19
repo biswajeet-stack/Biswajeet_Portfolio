@@ -5,169 +5,195 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biswajeet Kumar Parida - Digital Marketing Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            background-color: #111827; /* bg-gray-900 */
+            color: #d1d5db; /* text-gray-300 */
         }
-        .skill-card, .project-card {
+        .highlight {
+            background-color: #bef264; /* lime-300 */
+            color: #111827; /* gray-900 */
+            padding: 0 0.5rem;
+            border-radius: 0.25rem;
+        }
+        .card {
+            background-color: #1f2937; /* bg-gray-800 */
+            border: 1px solid #374151; /* border-gray-700 */
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .skill-card:hover, .project-card:hover {
+        .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 15px -3px rgba(190, 242, 100, 0.1), 0 4px 6px -2px rgba(190, 242, 100, 0.05);
         }
         .company-logo {
             transition: filter 0.3s ease, transform 0.3s ease;
-            filter: grayscale(100%);
+            filter: grayscale(100%) brightness(1.5);
         }
         .company-logo:hover {
-            filter: grayscale(0);
+            filter: grayscale(0) brightness(1);
             transform: scale(1.05);
+        }
+        .nav-link {
+            position: relative;
+            color: #d1d5db; /* text-gray-300 */
+            transition: color 0.3s;
+        }
+        .nav-link:hover {
+            color: #bef264; /* lime-300 */
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #bef264; /* lime-300 */
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gray-900 text-gray-300">
 
     <!-- Header -->
-    <header class="bg-white shadow-md fixed w-full z-10">
+    <header class="bg-gray-900/80 backdrop-blur-sm shadow-md fixed w-full z-20">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-800">Biswajeet Kumar Parida</a>
-            <div class="hidden md:flex space-x-6">
-                <a href="#about" class="text-gray-600 hover:text-indigo-600">About</a>
-                <a href="#experience" class="text-gray-600 hover:text-indigo-600">Experience</a>
-                <a href="#companies" class="text-gray-600 hover:text-indigo-600">Companies</a>
-                <a href="#projects" class="text-gray-600 hover:text-indigo-600">Projects</a>
-                <a href="#skills" class="text-gray-600 hover:text-indigo-600">Skills</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600">Contact</a>
+            <a href="#" class="text-2xl font-bold text-white">Biswajeet.</a>
+            <div class="hidden md:flex space-x-8">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#companies" class="nav-link">Companies</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
             </div>
-            <a href="#contact" class="hidden md:block bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700">Hire Me</a>
+            <a href="#contact" class="hidden md:block bg-lime-300 text-gray-900 font-bold py-2 px-4 rounded-md hover:bg-lime-400 transition-colors">Hire Me</a>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-24 bg-white">
-        <div class="container mx-auto px-6 py-16 text-center">
+    <section class="pt-32 pb-20 bg-gray-900">
+        <div class="container mx-auto px-6 text-center">
             <div class="max-w-4xl mx-auto">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">Digital Marketing Professional</h1>
-                <p class="mt-4 text-lg text-gray-600">Passionate about driving growth through strategic and data-driven marketing initiatives. Seeking a challenging role as a Digital Marketing Intern.</p>
-                <div class="mt-8 space-x-4">
-                    <a href="http://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="bg-indigo-600 text-white py-3 px-6 rounded-full hover:bg-indigo-700 inline-block">LinkedIn Profile</a>
-                    <a href="resume.pdf" download class="bg-gray-700 text-white py-3 px-6 rounded-full hover:bg-gray-800 inline-block">Download Resume</a>
+                <h1 class="text-5xl md:text-7xl font-extrabold text-white leading-tight">
+                    Creative <span class="highlight">Digital Marketing</span> Solutions
+                </h1>
+                <p class="mt-6 text-lg text-gray-400 max-w-2xl mx-auto">Passionate about driving growth through strategic and data-driven marketing initiatives. Seeking a challenging role as a Digital Marketing Intern.</p>
+                <div class="mt-10 space-x-4">
+                    <a href="http://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="bg-lime-300 text-gray-900 font-bold py-3 px-8 rounded-md hover:bg-lime-400 transition-colors inline-block">LinkedIn Profile</a>
+                    <a href="resume.pdf" download class="bg-gray-700 text-white py-3 px-8 rounded-md hover:bg-gray-600 transition-colors inline-block">Download Resume</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Me -->
-    <section id="about" class="py-20">
+    <section id="about" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
+            <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/3 mb-8 md:mb-0">
-                    <img src="https://placehold.co/300x300/E2E8F0/4A5568?text=BKP" alt="Biswajeet Kumar Parida" class="rounded-full shadow-lg mx-auto">
+                    <img src="https://placehold.co/300x300/1f2937/d1d5db?text=BKP" alt="Biswajeet Kumar Parida" class="rounded-full shadow-2xl mx-auto shadow-lime-500/10">
                 </div>
-                <div class="md:w-2/3 md:pl-12">
-                    <p class="text-lg text-gray-700 leading-relaxed">I am a results-oriented and highly motivated individual with a passion for digital marketing. My experience includes social media management, SEO optimization, and content strategy. I am a quick learner, a collaborative team player, and possess strong analytical and problem-solving skills. I am eager to contribute my skills and learn from experienced professionals in a dynamic internship role.</p>
+                <div class="md:w-2/3">
+                    <h2 class="text-4xl font-bold text-white mb-4">About Me</h2>
+                    <p class="text-lg text-gray-400 leading-relaxed">I am a results-oriented and highly motivated individual with a passion for digital marketing. My experience includes social media management, SEO optimization, and content strategy. I am a quick learner, a collaborative team player, and possess strong analytical and problem-solving skills. I am eager to contribute my skills and learn from experienced professionals in a dynamic internship role.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Work Experience -->
-    <section id="experience" class="py-20 bg-white">
+    <section id="experience" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Work Experience</h2>
-            <div class="space-y-12">
-                <!-- Experience items here -->
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/4 font-semibold text-indigo-600">March 2025 - June 2025</div>
-                    <div class="md:w-3/4 bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold">Digital Marketing Intern | Zeepty</h3>
-                        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
-                            <li>Increased LinkedIn & Instagram interactions by 30%, generating 15+ qualified leads in 1 month.</li>
-                            <li>Improved Zeepty's SEO score from 66 to 72, boosting organic traffic by 12% in 4 weeks.</li>
-                            <li>Researched and drafted 5 blog posts targeting Gen Z, increasing engagement by 25%.</li>
-                        </ul>
-                    </div>
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Work Experience</h2>
+            <div class="relative border-l-2 border-gray-700 space-y-12 pl-10">
+                 <!-- Experience items here -->
+                <div class="relative">
+                    <div class="absolute -left-[46px] top-1 h-4 w-4 rounded-full bg-lime-300"></div>
+                    <p class="text-lime-300 font-semibold mb-1">March 2025 - June 2025</p>
+                    <h3 class="text-xl font-bold text-white">Digital Marketing Intern | Zeepty</h3>
+                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                        <li>Increased LinkedIn & Instagram interactions by 30%, generating 15+ qualified leads in 1 month.</li>
+                        <li>Improved Zeepty's SEO score from 66 to 72, boosting organic traffic by 12% in 4 weeks.</li>
+                        <li>Researched and drafted 5 blog posts targeting Gen Z, increasing engagement by 25%.</li>
+                    </ul>
                 </div>
-                <div class="flex flex-col md:flex-row items-center">
-                    <div class="md:w-1/4 font-semibold text-indigo-600">January 2025 - February 2025</div>
-                    <div class="md:w-3/4 bg-gray-50 p-6 rounded-lg shadow-md">
-                        <h3 class="text-xl font-bold">Digital Marketing Intern | Stellar8Labs</h3>
-                        <ul class="mt-4 list-disc list-inside text-gray-700 space-y-2">
-                            <li>Identified 15+ technical SEO issues for JNC Tech, improving search rankings for 10+ key keywords.</li>
-                            <li>Structured a content calendar, increasing LinkedIn engagement by 20% and follower growth by 15%.</li>
-                        </ul>
-                    </div>
+                <div class="relative">
+                    <div class="absolute -left-[46px] top-1 h-4 w-4 rounded-full bg-lime-300"></div>
+                    <p class="text-lime-300 font-semibold mb-1">January 2025 - February 2025</p>
+                    <h3 class="text-xl font-bold text-white">Digital Marketing Intern | Stellar8Labs</h3>
+                    <ul class="mt-4 list-disc list-inside text-gray-400 space-y-2">
+                        <li>Identified 15+ technical SEO issues for JNC Tech, improving search rankings for 10+ key keywords.</li>
+                        <li>Structured a content calendar, increasing LinkedIn engagement by 20% and follower growth by 15%.</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Companies Section -->
-    <section id="companies" class="py-20">
+    <section id="companies" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Trusted By</h2>
+            <h2 class="text-3xl font-bold text-center text-white mb-12">Trusted By</h2>
             <div class="flex flex-wrap justify-center items-center gap-x-12 gap-y-8">
-                <img src="https://www.olcademy.com/images/olcademy-logo.png" alt="Olcademy Logo" class="company-logo h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Olcademy';">
-                <img src="https://media.licdn.com/dms/image/D560BAQGgQj2e1tY5Lg/company-logo_200_200/0/1699694895922/stellar8labs_logo?e=2147483647&v=beta&t=o1n_1g4f2a3e5i7k9l1o3q5s7u9w1y3a" alt="Stellar8Labs Logo" class="company-logo h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Stellar8Labs';">
-                <img src="https://media.licdn.com/dms/image/C4D0BAQG_9g-2sH4t4w/company-logo_200_200/0/1630652029486/solvative_logo?e=2147483647&v=beta&t=b_v2x9y8z7a6s5d4f3g2h1j_k" alt="Solvative Logo" class="company-logo h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Solvative';">
-                <img src="https://media.licdn.com/dms/image/C560BAQG5Z6Yw4X4q0w/company-logo_200_200/0/1630652029486/peerfives_logo?e=2147483647&v=beta&t=a_b1c2d3e4f5g6h7i8j9k_l" alt="Peerfives Logo" class="company-logo h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Peerfives';">
-                <img src="https://media.licdn.com/dms/image/D4D0BAQHZ_Q-9s8r7t6/company-logo_200_200/0/1630652029486/zeepty_logo?e=2147483647&v=beta&t=z_y1x2w3v4u5t6s7r8q9p_o" alt="Zeepty Logo" class="company-logo h-12" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Zeepty';">
+                <img src="https://www.olcademy.com/images/olcademy-logo.png" alt="Olcademy Logo" class="company-logo h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Olcademy';">
+                <img src="https://media.licdn.com/dms/image/D560BAQGgQj2e1tY5Lg/company-logo_200_200/0/1699694895922/stellar8labs_logo?e=2147483647&v=beta&t=o1n_1g4f2a3e5i7k9l1o3q5s7u9w1y3a" alt="Stellar8Labs Logo" class="company-logo h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Stellar8Labs';">
+                <img src="https://media.licdn.com/dms/image/C4D0BAQG_9g-2sH4t4w/company-logo_200_200/0/1630652029486/solvative_logo?e=2147483647&v=beta&t=b_v2x9y8z7a6s5d4f3g2h1j_k" alt="Solvative Logo" class="company-logo h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Solvative';">
+                <img src="https://media.licdn.com/dms/image/C560BAQG5Z6Yw4X4q0w/company-logo_200_200/0/1630652029486/peerfives_logo?e=2147483647&v=beta&t=a_b1c2d3e4f5g6h7i8j9k_l" alt="Peerfives Logo" class="company-logo h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Peerfives';">
+                <img src="https://media.licdn.com/dms/image/D4D0BAQHZ_Q-9s8r7t6/company-logo_200_200/0/1630652029486/zeepty_logo?e=2147483647&v=beta&t=z_y1x2w3v4u5t6s7r8q9p_o" alt="Zeepty Logo" class="company-logo h-10" onerror="this.onerror=null;this.src='https://placehold.co/150x60/E2E8F0/4A5568?text=Zeepty';">
             </div>
         </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">My Projects</h2>
+            <h2 class="text-4xl font-bold text-center text-white mb-12">My Projects</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Project 1 -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
-                    <img src="https://placehold.co/600x400/31C48D/FFFFFF?text=GMB+SEO" alt="Project 1" class="w-full h-48 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Google My Business & Local SEO</h3>
-                        <p class="text-gray-700">A case study demonstrating how I optimized a Google My Business profile and implemented local SEO strategies to improve search visibility.</p>
-                    </div>
-                    <div class="p-6 pt-0">
-                         <a href="https://www.linkedin.com/posts/biswajeet-marketing_digitalmarketing-googlemybusiness-localseo-activity-7314855110101123073-ywIx" target="_blank" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors">View Project</a>
+                <div class="card rounded-lg overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/d1d5db?text=GMB+SEO" alt="Project 1" class="w-full h-56 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Google My Business & Local SEO</h3>
+                        <p class="text-gray-400 flex-grow">A case study demonstrating how I optimized a Google My Business profile and implemented local SEO strategies to improve search visibility.</p>
+                        <a href="https://www.linkedin.com/posts/biswajeet-marketing_digitalmarketing-googlemybusiness-localseo-activity-7314855110101123073-ywIx" target="_blank" class="mt-4 inline-block bg-gray-700 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition-colors self-start">View Project</a>
                     </div>
                 </div>
                 <!-- Project 2 -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
-                    <img src="https://placehold.co/600x400/FDBA74/FFFFFF?text=Zeepty+Campaign" alt="Project 2" class="w-full h-48 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Social Media Campaign for Zeepty</h3>
-                        <p class="text-gray-700">Managed and grew Zeepty's social media presence, achieving a 40% increase in brand mentions and generating over 100 qualified leads through targeted campaigns.</p>
-                    </div>
-                     <div class="p-6 pt-0">
-                         <a href="https://www.linkedin.com/company/zeepty/posts/?feedView=all" target="_blank" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors">View Campaign</a>
+                <div class="card rounded-lg overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/d1d5db?text=Zeepty+Campaign" alt="Project 2" class="w-full h-56 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Social Media Campaign for Zeepty</h3>
+                        <p class="text-gray-400 flex-grow">Managed and grew Zeepty's social media presence, achieving a 40% increase in brand mentions and generating over 100 qualified leads through targeted campaigns.</p>
+                        <a href="https://www.linkedin.com/company/zeepty/posts/?feedView=all" target="_blank" class="mt-4 inline-block bg-gray-700 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition-colors self-start">View Campaign</a>
                     </div>
                 </div>
                 <!-- Project 3 -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
-                    <img src="https://placehold.co/600x400/F9A8D4/FFFFFF?text=Peerfives+Content" alt="Project 3" class="w-full h-48 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2">Content Marketing for Peerfives</h3>
-                        <p class="text-gray-700">Created a content marketing strategy for Peerfives, including blog posts like the "Gratitude Journal," leading to a 25% increase in user engagement.</p>
-                    </div>
-                     <div class="p-6 pt-0">
-                         <a href="https://peerfives.com/gratitude-journal/" target="_blank" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors">View Article</a>
+                <div class="card rounded-lg overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/d1d5db?text=Peerfives+Content" alt="Project 3" class="w-full h-56 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">Content Marketing for Peerfives</h3>
+                        <p class="text-gray-400 flex-grow">Created a content marketing strategy for Peerfives, including blog posts like the "Gratitude Journal," leading to a 25% increase in user engagement.</p>
+                        <a href="https://peerfives.com/gratitude-journal/" target="_blank" class="mt-4 inline-block bg-gray-700 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition-colors self-start">View Article</a>
                     </div>
                 </div>
                 <!-- Project 4 -->
-                <div class="project-card bg-gray-50 rounded-lg shadow-md overflow-hidden flex flex-col">
-                    <img src="https://placehold.co/600x400/93C5FD/FFFFFF?text=PehchanPlus" alt="Project 4" class="w-full h-48 object-cover">
-                    <div class="p-6 flex-grow">
-                        <h3 class="text-xl font-bold mb-2">PehchanPlus - My Digital Brand</h3>
-                        <p class="text-gray-700">PehchanPlus is my own digital marketing brand where I provide comprehensive SEO, SEM, and other digital solutions to help businesses grow their online presence.</p>
-                    </div>
-                     <div class="p-6 pt-0">
-                         <a href="https://biswajeet-stack.github.io/Pehchan-/" target="_blank" class="inline-block bg-indigo-600 text-white py-2 px-4 rounded-full hover:bg-indigo-700 transition-colors">Visit Website</a>
+                <div class="card rounded-lg overflow-hidden flex flex-col">
+                    <img src="https://placehold.co/600x400/111827/d1d5db?text=PehchanPlus" alt="Project 4" class="w-full h-56 object-cover">
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h3 class="text-xl font-bold text-white mb-2">PehchanPlus - My Digital Brand</h3>
+                        <p class="text-gray-400 flex-grow">PehchanPlus is my own digital marketing brand where I provide comprehensive SEO, SEM, and other digital solutions to help businesses grow their online presence.</p>
+                        <a href="https://biswajeet-stack.github.io/Pehchan-/" target="_blank" class="mt-4 inline-block bg-gray-700 text-white font-semibold py-2 px-4 rounded-md hover:bg-gray-600 transition-colors self-start">Visit Website</a>
                     </div>
                 </div>
             </div>
@@ -175,59 +201,59 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="py-20">
+    <section id="skills" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Skills</h2>
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Technical & Soft Skills</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 <!-- Skill items here -->
-                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">MS Word</h3>
+                 <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">MS Word</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">MS PowerPoint</h3>
+                <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">MS PowerPoint</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">MS Excel</h3>
+                <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">MS Excel</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">Canva</h3>
+                <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">Canva</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">Leadership</h3>
+                <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">Leadership</h3>
                 </div>
-                <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">Critical Thinking</h3>
+                <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">Critical Thinking</h3>
                 </div>
-                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">Collaboration</h3>
+                 <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">Collaboration</h3>
                 </div>
-                 <div class="skill-card bg-white p-6 rounded-lg shadow-md text-center">
-                    <h3 class="text-lg font-semibold">Multitasking</h3>
+                 <div class="card p-6 rounded-lg text-center">
+                    <h3 class="text-lg font-bold text-white">Multitasking</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <section id="contact" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Contact Me</h2>
-            <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Contact Me</h2>
+            <div class="max-w-2xl mx-auto card p-8 rounded-lg">
                 <form>
                     <div class="mb-4">
-                        <label for="name" class="block text-gray-700 font-semibold mb-2">Name</label>
-                        <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
+                        <label for="name" class="block text-gray-300 font-semibold mb-2">Name</label>
+                        <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300" required>
                     </div>
                     <div class="mb-4">
-                        <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required>
+                        <label for="email" class="block text-gray-300 font-semibold mb-2">Email</label>
+                        <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300" required>
                     </div>
                     <div class="mb-4">
-                        <label for="message" class="block text-gray-700 font-semibold mb-2">Message</label>
-                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-600" required></textarea>
+                        <label for="message" class="block text-gray-300 font-semibold mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-lime-300" required></textarea>
                     </div>
                     <div class="text-center">
-                        <button type="submit" class="bg-indigo-600 text-white py-3 px-6 rounded-full hover:bg-indigo-700">Send Message</button>
+                        <button type="submit" class="w-full bg-lime-300 text-gray-900 font-bold py-3 px-6 rounded-md hover:bg-lime-400 transition-colors">Send Message</button>
                     </div>
                 </form>
             </div>
@@ -235,7 +261,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6">
+    <footer class="bg-black text-gray-500 py-6">
         <div class="container mx-auto px-6 text-center">
             <p>&copy; 2025 Biswajeet Kumar Parida. All rights reserved.</p>
         </div>
