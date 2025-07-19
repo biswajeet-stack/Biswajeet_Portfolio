@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,6 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
             background-color: #f8fafc; /* slate-50 */
         }
         .card {
@@ -113,7 +112,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+    <section id="home" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
         <video autoplay loop muted class="hero-video">
             <source src="https://videos.pexels.com/video-files/3108018/3108018-hd_1920_1080_25fps.mp4" type="video/mp4">
             Your browser does not support the video tag.
@@ -419,6 +418,23 @@
             <p>&copy; 2025 Biswajeet Kumar Parida. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#home" id="toTopBtn" class="hidden fixed bottom-5 right-5 bg-sky-500 text-white p-3 rounded-full shadow-lg hover:bg-sky-600 transition-colors z-30">
+        <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <script>
+        const toTopBtn = document.getElementById('toTopBtn');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) { // Show button after scrolling 300px
+                toTopBtn.classList.remove('hidden');
+            } else {
+                toTopBtn.classList.add('hidden');
+            }
+        });
+    </script>
 
 </body>
 </html>
