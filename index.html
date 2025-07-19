@@ -80,6 +80,18 @@
         .section-title {
             color: #1e293b; /* slate-800 */
         }
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -100;
+            transform: translateX(-50%) translateY(-50%);
+            background-size: cover;
+        }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-700">
@@ -101,7 +113,11 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative pt-32 pb-20 text-white" style="background-image: url('https://images.pexels.com/photos/1058279/pexels-photo-1058279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'); background-size: cover; background-position: center;">
+    <section class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+        <video autoplay loop muted class="hero-video">
+            <source src="https://videos.pexels.com/video-files/3108018/3108018-hd_1920_1080_25fps.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         <div class="absolute inset-0 bg-black opacity-50"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
             <div class="max-w-4xl mx-auto">
@@ -379,4 +395,4 @@
     </footer>
 
 </body>
-</html>
+</ht
