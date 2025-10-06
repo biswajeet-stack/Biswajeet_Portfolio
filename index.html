@@ -4,6 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biswajeet Kumar Parida - Digital Marketing Portfolio</title>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5ERB8DNP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-B5ERB8DNP6');
+    </script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -98,7 +107,7 @@
     <!-- Header -->
     <header class="bg-white/80 backdrop-blur-sm shadow-sm fixed w-full z-20">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-slate-800">Biswajeet Kumar Parida</a>
+            <a href="#" class="text-xl md:text-2xl font-bold text-slate-800">Biswajeet Kumar Parida</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#experience" class="nav-link">Experience</a>
@@ -108,7 +117,7 @@
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
              <div class="md:hidden">
-                <button id="menu-btn" class="text-slate-800">
+                <button id="menu-btn" class="text-slate-800 focus:outline-none">
                     <i class="fa-solid fa-bars fa-lg"></i>
                 </button>
             </div>
@@ -385,11 +394,53 @@
                         <p class="text-slate-500">LinkedIn Learning</p>
                     </div>
                 </div>
-                 <div class="card p-6 rounded-lg flex items-center gap-5">
+                <div class="card p-6 rounded-lg flex items-center gap-5">
                     <div class="text-sky-500 text-3xl"><i class="fa-brands fa-figma"></i></div>
                     <div>
                         <h3 class="font-bold section-title">Figma UI Design for Beginners</h3>
                         <p class="text-slate-500">Juno</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex items-center gap-5">
+                    <div class="text-sky-500 text-3xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div>
+                        <h3 class="font-bold section-title">PPC Fundamentals</h3>
+                        <p class="text-slate-500">Semrush</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex items-center gap-5">
+                    <div class="text-sky-500 text-3xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div>
+                        <h3 class="font-bold section-title">Emoji Marketing Mini-Course</h3>
+                        <p class="text-slate-500">Semrush</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex items-center gap-5">
+                    <div class="text-sky-500 text-3xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div>
+                        <h3 class="font-bold section-title">International SEO</h3>
+                        <p class="text-slate-500">Semrush</p>
+                    </div>
+                </div>
+                 <div class="card p-6 rounded-lg flex items-center gap-5">
+                    <div class="text-sky-500 text-3xl"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <div>
+                        <h3 class="font-bold section-title">Keyword Research Essentials</h3>
+                        <p class="text-slate-500">Semrush</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex items-center gap-5">
+                    <div class="text-sky-500 text-3xl"><i class="fa-brands fa-wordpress"></i></div>
+                    <div>
+                        <h3 class="font-bold section-title">Build a free website with WordPress</h3>
+                        <p class="text-slate-500">Coursera</p>
+                    </div>
+                </div>
+                <div class="card p-6 rounded-lg flex items-center gap-5">
+                    <div class="text-sky-500 text-3xl"><i class="fa-solid fa-brain"></i></div>
+                    <div>
+                        <h3 class="font-bold section-title">Generative AI Mastermind</h3>
+                        <p class="text-slate-500">Outskill</p>
                     </div>
                 </div>
             </div>
@@ -442,6 +493,7 @@
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
 
+        // Show/hide "Back to Top" button
         window.addEventListener('scroll', () => {
             if (window.pageYOffset > 300) { // Show button after scrolling 300px
                 toTopBtn.classList.remove('hidden');
@@ -450,10 +502,19 @@
             }
         });
 
+        // Toggle mobile menu
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
         });
     </script>
 
 </body>
 </html>
+
