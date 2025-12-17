@@ -747,14 +747,6 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Initialize Animations
-        AOS.init({
-            once: true,
-            offset: 100,
-            duration: 800,
-            easing: 'ease-out-cubic',
-        });
-
         // Typing Effect & Image Changer
         const words = ["Digital Strategist.", "Automation Expert.", "SEO Specialist."];
         const heroImages = [
@@ -873,8 +865,19 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Start Typing
-        window.onload = typeWriter;
+        // Initialization: Wait for window load
+        window.addEventListener('load', () => {
+            // Start Typewriter
+            typeWriter();
+
+            // Initialize AOS after content is ready
+            AOS.init({
+                once: true,
+                offset: 100,
+                duration: 800,
+                easing: 'ease-out-cubic',
+            });
+        });
     </script>
 </body>
 </html>
