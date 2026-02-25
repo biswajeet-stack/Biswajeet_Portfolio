@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biswajeet Kumar Parida | Digital Strategist</title>
+    <title>Biswajeet Parida | Digital Marketing Strategist</title>
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5ERB8DNP6"></script>
@@ -18,37 +18,32 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Animation Library (AOS) -->
+    <!-- Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <!-- Tailwind Configuration for Custom Colors -->
+    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        display: ['"Outfit"', 'sans-serif'],
                     },
                     colors: {
-                        dark: {
-                            900: '#0f172a', // Main bg
-                            800: '#1e293b', // Card bg
-                            700: '#334155', // Border
-                        },
-                        brand: {
-                            teal: '#2dd4bf', // Accent 1
-                            purple: '#a78bfa', // Accent 2
-                        }
-                    },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        base: '#050505',
+                        surface: '#111111',
+                        surface2: '#1a1a1a',
+                        border: '#262626',
+                        accent: '#06b6d4', // Cyan
+                        accent2: '#8b5cf6', // Violet
                     }
                 }
             }
@@ -56,809 +51,518 @@
     </script>
 
     <style>
-        /* Custom Styles */
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: #050505;
+            color: #a3a3a3;
             overflow-x: hidden;
+            background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, transparent 70%);
         }
 
-        /* Glassmorphism */
-        .glass {
-            background: rgba(30, 41, 59, 0.7);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .glass-nav {
-            background: rgba(15, 23, 42, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        /* Gradient Text */
+        /* Typography Gradients */
         .text-gradient {
-            background: linear-gradient(to right, #2dd4bf, #a78bfa);
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Timeline Connector */
+        /* Floating Nav */
+        .capsule-nav {
+            background: rgba(17, 17, 17, 0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Bento Box Cards */
+        .bento-card {
+            background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+            border: 1px solid #262626;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bento-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .bento-card:hover {
+            transform: translateY(-4px);
+            border-color: #404040;
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8);
+        }
+        
+        .bento-card:hover::before {
+            opacity: 1;
+        }
+
+        /* Timeline */
         .timeline-line::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 19px; /* Adjust based on icon size */
-            height: 100%;
-            width: 2px;
-            background: #334155;
-            z-index: 0;
+            bottom: 0;
+            left: 24px;
+            width: 1px;
+            background: linear-gradient(to bottom, #06b6d4, #8b5cf6, transparent);
+            opacity: 0.3;
         }
 
         /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0f172a; 
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #334155; 
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #2dd4bf; 
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #262626; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #404040; }
 
-        /* Image Hover Zoom */
-        .img-zoom-container {
-            overflow: hidden;
-        }
-        .img-zoom {
-            transition: transform 0.5s ease;
-        }
-        .card:hover .img-zoom {
-            transform: scale(1.1);
-        }
-        
-        /* Cursor Blinking for Typewriter */
-        .cursor-blink {
-            animation: blink 1s step-end infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        /* Hero Image Transition */
-        #hero-img {
-            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-            opacity: 1;
-        }
-        .fade-out {
-            opacity: 0 !important;
-            transform: scale(0.95);
-        }
+        /* Hide scrollbar for skills/bento */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-teal selection:text-dark-900">
+<body class="antialiased selection:bg-accent selection:text-base">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- UPDATED HEADER TITLE -->
-            <a href="#" class="text-xl md:text-2xl font-bold font-mono tracking-tighter transition-colors flex items-center gap-2">
-                <i class="fa-solid fa-rocket text-brand-teal"></i>
-                <span class="text-gradient">Biswajeet Parida</span>
+    <!-- Floating Capsule Navigation -->
+    <div class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl transition-all duration-300">
+        <nav class="capsule-nav rounded-full px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold font-display tracking-tight text-white flex items-center gap-2 group">
+                <i class="fa-solid fa-layer-group text-accent group-hover:rotate-180 transition-transform duration-500"></i>
+                <span class="hidden sm:inline">Biswajeet</span>
             </a>
             
             <!-- Desktop Menu -->
-            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest text-slate-400">
-                <a href="#experience" class="hover:text-brand-teal transition-colors">Experience</a>
-                <a href="#education" class="hover:text-brand-teal transition-colors">Education</a>
-                <a href="#projects" class="hover:text-brand-teal transition-colors">Projects</a>
-                <a href="#skills" class="hover:text-brand-teal transition-colors">Skills</a>
-                <a href="#certifications" class="hover:text-brand-teal transition-colors">Certs</a>
+            <div class="hidden md:flex space-x-6 text-sm font-medium text-gray-400">
+                <a href="#experience" class="hover:text-white transition-colors">Experience</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#education" class="hover:text-white transition-colors">Education</a>
+                <a href="#certifications" class="hover:text-white transition-colors">Certs</a>
             </div>
 
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-slate-300 hover:text-white focus:outline-none">
-                <i class="fa-solid fa-bars-staggered fa-lg"></i>
-            </button>
-        </div>
-
+            <!-- CTA & Mobile Menu -->
+            <div class="flex items-center gap-4">
+                <a href="mailto:biswajeetkumarp@gmail.com" class="hidden sm:flex text-sm font-semibold bg-white text-base px-4 py-2 rounded-full hover:bg-gray-200 transition-colors">
+                    Hire Me
+                </a>
+                <button id="menu-btn" class="md:hidden text-gray-400 hover:text-white focus:outline-none">
+                    <i class="fa-solid fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </nav>
+        
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-dark-700">
-            <div class="flex flex-col px-6 py-4 space-y-4 text-center">
-                <a href="#experience" class="text-slate-300 hover:text-brand-teal block py-2">Experience</a>
-                <a href="#education" class="text-slate-300 hover:text-brand-teal block py-2">Education</a>
-                <a href="#projects" class="text-slate-300 hover:text-brand-teal block py-2">Projects</a>
-                <a href="#skills" class="text-slate-300 hover:text-brand-teal block py-2">Skills</a>
-                <a href="#certifications" class="text-slate-300 hover:text-brand-teal block py-2">Certs</a>
+        <div id="mobile-menu" class="hidden mt-4 bg-surface border border-border rounded-2xl p-4 shadow-2xl backdrop-blur-xl">
+            <div class="flex flex-col space-y-4 text-center text-sm font-medium text-gray-300">
+                <a href="#experience" class="hover:text-white block py-2">Experience</a>
+                <a href="#projects" class="hover:text-white block py-2">Projects</a>
+                <a href="#education" class="hover:text-white block py-2">Education</a>
+                <a href="#certifications" class="hover:text-white block py-2">Certifications</a>
             </div>
         </div>
-    </nav>
+    </div>
 
     <!-- Hero Section -->
-    <section id="home" class="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden">
-        <!-- Background Elements -->
-        <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 opacity-20 pointer-events-none">
-            <div class="absolute top-[-10%] left-[-10%] w-64 h-64 md:w-96 md:h-96 bg-brand-teal rounded-full blur-[100px] md:blur-[128px]"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-64 h-64 md:w-96 md:h-96 bg-brand-purple rounded-full blur-[100px] md:blur-[128px]"></div>
-        </div>
-
-        <div class="container mx-auto px-6 relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div class="text-center lg:text-left order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-brand-teal uppercase bg-brand-teal/10 rounded-full border border-brand-teal/20">
-                    Available for Digital Marketing Job Roles
-                </div>
-                <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold mb-6 leading-tight font-mono">
-                    I am a <br>
-                    <span id="typing-text" class="text-gradient"></span><span class="cursor-blink text-brand-purple">|</span>
-                </h1>
-                <p class="text-slate-400 text-base sm:text-lg mb-8 max-w-lg mx-auto lg:mx-0">
-                    Helping brands grow through data-driven automation, strategic SEO, and creative content. Transforming raw data into actionable insights.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                    <!-- Updated to HTTPS -->
-                    <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="px-8 py-4 bg-gradient-to-r from-brand-teal to-blue-500 text-dark-900 font-bold rounded-lg hover:shadow-[0_0_20px_rgba(45,212,191,0.5)] transition-all transform hover:-translate-y-1">
-                        <i class="fa-brands fa-linkedin mr-2"></i> LinkedIn
-                    </a>
-                    <a href="https://drive.google.com/file/d/1xkI-SJkHXlzLqY5tJENBqVXJEDP6NQYG/view?usp=sharing" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-lg hover:bg-white/10 transition-all border border-white/10">
-                        <i class="fa-solid fa-download mr-2"></i> Resume
-                    </a>
-                </div>
+    <section id="home" class="pt-40 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-center text-center">
+        <div data-aos="fade-up" data-aos-duration="1000">
+            <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 text-xs font-semibold tracking-wide text-accent bg-accent/10 rounded-full border border-accent/20">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                </span>
+                Available for Digital Marketing Roles
             </div>
             
-            <div class="order-1 lg:order-2 flex justify-center" data-aos="fade-left" data-aos-duration="1000">
-                <div class="relative w-64 h-64 sm:w-80 sm:h-80 md:w-96 md:h-96">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-brand-teal to-brand-purple rounded-full blur-2xl opacity-40 animate-pulse"></div>
-                    <!-- Hero Image with dynamic ID -->
-                    <img id="hero-img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Role Representation" class="relative rounded-2xl shadow-2xl border border-slate-700 object-cover w-full h-full">
-                </div>
-            </div>
-        </div>
-        
-        <!-- Scroll Down Indicator -->
-        <a href="#experience" class="hidden md:block absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-500 hover:text-brand-teal">
-            <i class="fa-solid fa-arrow-down-long text-xl"></i>
-        </a>
-    </section>
-
-    <!-- Brands/Companies Section -->
-    <section class="py-10 border-y border-dark-700 bg-dark-800/50">
-        <div class="container mx-auto px-6 overflow-hidden">
-            <p class="text-center text-slate-500 text-sm mb-6 uppercase tracking-widest">Proudly worked with</p>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-60 hover:opacity-100 transition-opacity duration-300">
-                 <!-- Responsive logos with smaller text on mobile -->
-                 <div class="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 scale-90 md:scale-100">
-                    <i class="fa-solid fa-rocket text-xl text-brand-teal"></i> <span class="font-bold text-base md:text-lg">Om Space</span>
-                 </div>
-                 <div class="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 scale-90 md:scale-100">
-                    <i class="fa-solid fa-graduation-cap text-xl text-brand-purple"></i> <span class="font-bold text-base md:text-lg">Olcademy</span>
-                 </div>
-                 <div class="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 scale-90 md:scale-100">
-                    <i class="fa-solid fa-star text-xl text-yellow-500"></i> <span class="font-bold text-base md:text-lg">Stellar8Labs</span>
-                 </div>
-                 <div class="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 scale-90 md:scale-100">
-                    <i class="fa-solid fa-code text-xl text-blue-500"></i> <span class="font-bold text-base md:text-lg">Solvative</span>
-                 </div>
-                 <div class="flex items-center gap-2 grayscale hover:grayscale-0 transition-all duration-300 scale-90 md:scale-100">
-                    <i class="fa-solid fa-chart-simple text-xl text-green-500"></i> <span class="font-bold text-base md:text-lg">Zeepty</span>
-                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section (Timeline) -->
-    <section id="experience" class="py-16 md:py-24 relative">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-16 font-mono" data-aos="fade-up">
-                Professional <span class="text-gradient">Journey</span>
-            </h2>
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black font-display text-white tracking-tight leading-[1.1] mb-6">
+                Architecting <br/>
+                <span class="text-gradient">Digital Growth.</span>
+            </h1>
             
-            <div class="relative timeline-line space-y-8 md:space-y-12">
-                
-                <!-- Experience Item 1 -->
-                <div class="relative pl-10 md:pl-12" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-dark-800 border-2 border-brand-teal rounded-full flex items-center justify-center z-10 shadow-[0_0_15px_rgba(45,212,191,0.3)]">
-                        <i class="fa-solid fa-rocket text-brand-teal text-sm"></i>
-                    </div>
-                    <div class="glass p-5 md:p-6 rounded-xl border-l-4 border-l-brand-teal hover:bg-dark-800 transition-colors">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h3 class="text-lg md:text-xl font-bold text-white">Educational Marketing Specialist</h3>
-                            <span class="text-xs md:text-sm text-brand-teal font-mono bg-brand-teal/10 px-2 py-1 rounded w-fit mt-1 sm:mt-0">Sep 2025 - Present</span>
-                        </div>
-                        <p class="text-slate-400 mb-2 font-medium text-sm md:text-base">Om Space Rocket and Exploration | Ahmedabad, Gujarat</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-300 space-y-1 text-sm leading-relaxed">
-                            <li>Designed and deployed 20+ automated workflows using <span class="text-white font-semibold">Pabbly and AiSensy</span> (80% deployment rate).</li>
-                            <li>Implemented Razorpay Webhook & Zoho CRM flow for real-time lead generation.</li>
-                            <li>Developed Power BI dashboards for segmented reporting (state-wise, age-based).</li>
-                            <li>Managed Zoho People setup (geo-fencing, shift policies) and authored Master Automation Files.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative pl-10 md:pl-12" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-dark-800 border-2 border-brand-purple rounded-full flex items-center justify-center z-10">
-                        <i class="fa-solid fa-laptop-code text-brand-purple text-sm"></i>
-                    </div>
-                    <div class="glass p-5 md:p-6 rounded-xl border-l-4 border-l-brand-purple hover:bg-dark-800 transition-colors">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h3 class="text-lg md:text-xl font-bold text-white">Digital Marketing Intern</h3>
-                            <span class="text-xs md:text-sm text-brand-purple font-mono bg-brand-purple/10 px-2 py-1 rounded w-fit mt-1 sm:mt-0">Jun 2025 - Sep 2025</span>
-                        </div>
-                        <p class="text-slate-400 mb-2 font-medium text-sm md:text-base">SOLVATIVE | Remote (Punjab)</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-300 space-y-1 text-sm leading-relaxed">
-                            <li>Managed content for LinkedIn, Instagram & Bluesky; updated websites using <span class="text-white font-semibold">Storyblok CMS</span>.</li>
-                            <li>Created automated cold emailing workflows using <span class="text-white font-semibold">n8n</span> for lead generation.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience Item 3 -->
-                <div class="relative pl-10 md:pl-12" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-dark-800 border-2 border-blue-500 rounded-full flex items-center justify-center z-10">
-                        <i class="fa-solid fa-chart-line text-blue-500 text-sm"></i>
-                    </div>
-                    <div class="glass p-5 md:p-6 rounded-xl border-l-4 border-l-blue-500 hover:bg-dark-800 transition-colors">
-                        <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h3 class="text-lg md:text-xl font-bold text-white">Digital Marketing Intern</h3>
-                            <span class="text-xs md:text-sm text-blue-400 font-mono bg-blue-500/10 px-2 py-1 rounded w-fit mt-1 sm:mt-0">Mar 2025 - Jun 2025</span>
-                        </div>
-                        <p class="text-slate-400 mb-2 font-medium text-sm md:text-base">Zeepty | Remote (Punjab)</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-300 space-y-1 text-sm leading-relaxed">
-                            <li>Boosted social interactions by <span class="text-white font-semibold">30%</span> and organic traffic by <span class="text-white font-semibold">12%</span>.</li>
-                            <li>Generated 15+ qualified leads/month; authored high-engagement blogs for Gen Z.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                 <!-- Experience Item 4 -->
-                 <div class="relative pl-10 md:pl-12" data-aos="fade-up" data-aos-delay="400">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-dark-800 border-2 border-yellow-500 rounded-full flex items-center justify-center z-10">
-                        <i class="fa-solid fa-star text-yellow-500 text-sm"></i>
-                    </div>
-                    <div class="glass p-5 md:p-6 rounded-xl border-l-4 border-l-yellow-500 hover:bg-dark-800 transition-colors">
-                         <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h3 class="text-lg md:text-xl font-bold text-white">Digital Marketing Intern</h3>
-                            <span class="text-xs md:text-sm text-yellow-400 font-mono bg-yellow-500/10 px-2 py-1 rounded w-fit mt-1 sm:mt-0">Jan 2025 - Feb 2025</span>
-                        </div>
-                        <p class="text-slate-400 mb-2 font-medium text-sm md:text-base">Stellar8Labs | Punjab</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-300 space-y-1 text-sm leading-relaxed">
-                            <li>Identified 15+ technical SEO issues for JNC Tech; improved rankings for 10+ keywords.</li>
-                            <li>Increased LinkedIn engagement by 20%; executed campaign driving 120+ registrations.</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                 <!-- Experience Item 5 -->
-                 <div class="relative pl-10 md:pl-12" data-aos="fade-up" data-aos-delay="500">
-                    <div class="absolute left-0 top-0 w-10 h-10 bg-dark-800 border-2 border-slate-500 rounded-full flex items-center justify-center z-10">
-                        <i class="fa-solid fa-chalkboard-user text-slate-500 text-sm"></i>
-                    </div>
-                    <div class="glass p-5 md:p-6 rounded-xl border-l-4 border-l-slate-500 hover:bg-dark-800 transition-colors">
-                         <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-2">
-                            <h3 class="text-lg md:text-xl font-bold text-white">High School Teacher</h3>
-                            <span class="text-xs md:text-sm text-slate-400 font-mono bg-slate-700/30 px-2 py-1 rounded w-fit mt-1 sm:mt-0">Sep 2023 - Sep 2024</span>
-                        </div>
-                        <p class="text-slate-400 mb-2 font-medium text-sm md:text-base">VR. Educational Academy | Chhattisgarh</p>
-                        <ul class="list-disc list-outside ml-4 text-slate-300 space-y-1 text-sm leading-relaxed">
-                            <li>Achieved 100% pass rate for 10th Grade class.</li>
-                            <li>Managed annual sports meet (50+ participants) and school function (500+ attendees).</li>
-                        </ul>
-                    </div>
-                </div>
-
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+                I combine <span class="text-white font-medium">marketing automation</span>, <span class="text-white font-medium">performance SEO</span>, and <span class="text-white font-medium">data visualization</span> to scale brands and drive measurable ROI.
+            </p>
+            
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#projects" class="px-8 py-4 bg-white text-base font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2">
+                    View Portfolio <i class="fa-solid fa-arrow-down"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="px-8 py-4 bg-surface border border-border text-white font-bold rounded-full hover:bg-border transition-colors flex items-center gap-2">
+                    <i class="fa-brands fa-linkedin text-accent"></i> LinkedIn
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="py-16 md:py-24 bg-dark-800/30">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-16 font-mono" data-aos="fade-up">
-                Education
-            </h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                <div class="glass p-6 rounded-xl border border-dark-700 hover:border-brand-teal transition-all" data-aos="fade-up">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fa-solid fa-user-graduate text-3xl text-brand-teal"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">Master of Business Administration</h3>
-                            <p class="text-slate-400 text-sm">Lovely Professional University | Punjab</p>
-                        </div>
-                    </div>
-                    <p class="text-brand-teal font-mono text-sm">Oct 2024 - Present</p>
+    <!-- Bento Grid Section (Overview) -->
+    <section class="py-10 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[180px]">
+            
+            <!-- Bento Box 1: Intro/Location -->
+            <div class="bento-card col-span-1 md:col-span-2 lg:col-span-2 row-span-1 p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="50">
+                <div class="flex justify-between items-start">
+                    <i class="fa-solid fa-location-dot text-2xl text-gray-600"></i>
+                    <span class="text-xs font-mono text-gray-500 uppercase tracking-widest">Base</span>
                 </div>
-                
-                <div class="glass p-6 rounded-xl border border-dark-700 hover:border-brand-purple transition-all" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-4 mb-4">
-                        <i class="fa-solid fa-flask text-3xl text-brand-purple"></i>
-                        <div>
-                            <h3 class="text-lg font-bold text-white">B.Sc. Zoology Honors</h3>
-                            <p class="text-slate-400 text-sm">Jupiter Degree College | Bhubaneswar</p>
-                        </div>
-                    </div>
-                    <p class="text-brand-purple font-mono text-sm">2020 - 2023 | CGPA: 8.99</p>
+                <div>
+                    <h3 class="text-2xl font-bold font-display text-white mb-1">Ahmedabad, India</h3>
+                    <p class="text-sm text-gray-400">Open to Remote / Relocation</p>
                 </div>
             </div>
+
+            <!-- Bento Box 2: Current Role -->
+            <div class="bento-card col-span-1 md:col-span-1 lg:col-span-2 row-span-1 p-6 flex flex-col justify-between bg-[url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80')] bg-cover bg-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="absolute inset-0 bg-gradient-to-r from-base/90 to-base/40"></div>
+                <div class="relative z-10 flex justify-between items-start h-full flex-col">
+                    <div class="px-2 py-1 bg-accent/20 backdrop-blur border border-accent/30 rounded text-xs font-bold text-accent mb-4">Current</div>
+                    <div>
+                        <h3 class="text-xl font-bold font-display text-white mb-1">Automation Specialist</h3>
+                        <p class="text-sm text-gray-300">@ Om Space Rocket & Exploration</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bento Box 3: Stats -->
+            <div class="bento-card col-span-1 row-span-1 p-6 flex flex-col items-center justify-center text-center" data-aos="fade-up" data-aos-delay="150">
+                <h2 class="text-5xl font-black font-display text-white mb-2">20<span class="text-accent">+</span></h2>
+                <p class="text-sm text-gray-400 font-medium">Automations Built</p>
+            </div>
+
+            <div class="bento-card col-span-1 row-span-1 p-6 flex flex-col items-center justify-center text-center" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-5xl font-black font-display text-white mb-2">30<span class="text-accent2">%</span></h2>
+                <p class="text-sm text-gray-400 font-medium">Growth in Engagement</p>
+            </div>
+
+            <!-- Bento Box 4: Core Stack -->
+            <div class="bento-card col-span-1 md:col-span-3 lg:col-span-2 row-span-1 p-6 flex flex-col justify-between" data-aos="fade-up" data-aos-delay="250">
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-sm font-mono text-gray-500 uppercase tracking-widest">Tech Stack</h3>
+                </div>
+                <div class="flex flex-wrap gap-2">
+                    <span class="px-3 py-1.5 bg-surface2 rounded-md text-xs font-semibold text-gray-200 border border-border">Pabbly</span>
+                    <span class="px-3 py-1.5 bg-surface2 rounded-md text-xs font-semibold text-gray-200 border border-border">Google Analytics 4</span>
+                    <span class="px-3 py-1.5 bg-surface2 rounded-md text-xs font-semibold text-gray-200 border border-border">Power BI</span>
+                    <span class="px-3 py-1.5 bg-surface2 rounded-md text-xs font-semibold text-gray-200 border border-border">Zoho CRM</span>
+                    <span class="px-3 py-1.5 bg-surface2 rounded-md text-xs font-semibold text-gray-200 border border-border">SEO</span>
+                    <span class="px-3 py-1.5 bg-surface2 rounded-md text-xs font-semibold text-gray-200 border border-border">Figma</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 px-6 max-w-4xl mx-auto">
+        <div class="mb-16" data-aos="fade-up">
+            <h2 class="text-4xl font-black font-display text-white mb-4">Work Experience</h2>
+            <p class="text-gray-400">My trajectory in digital strategy and execution.</p>
+        </div>
+
+        <div class="relative timeline-line space-y-12">
+            
+            <!-- Exp 1 -->
+            <div class="relative pl-14" data-aos="fade-up">
+                <div class="absolute left-0 top-1 w-12 h-12 bg-surface2 border-2 border-border rounded-xl flex items-center justify-center z-10">
+                    <i class="fa-solid fa-rocket text-accent"></i>
+                </div>
+                <div class="group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold font-display text-white group-hover:text-accent transition-colors">Educational Marketing Specialist</h3>
+                        <span class="text-xs text-gray-500 font-mono mt-1 sm:mt-0">Sep 2025 - Present</span>
+                    </div>
+                    <p class="text-accent text-sm font-semibold mb-4">Om Space Rocket and Exploration</p>
+                    <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
+                        <li>• Designed and deployed 20+ automated workflows using Pabbly and AiSensy (80% deployment rate).</li>
+                        <li>• Implemented Razorpay Webhook & Zoho CRM flow for real-time lead generation.</li>
+                        <li>• Developed Power BI dashboards for segmented reporting (state-wise, age-based).</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Exp 2 -->
+            <div class="relative pl-14" data-aos="fade-up">
+                <div class="absolute left-0 top-1 w-12 h-12 bg-surface2 border-2 border-border rounded-xl flex items-center justify-center z-10">
+                    <i class="fa-solid fa-code text-accent2"></i>
+                </div>
+                <div class="group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold font-display text-white group-hover:text-accent2 transition-colors">Digital Marketing Intern</h3>
+                        <span class="text-xs text-gray-500 font-mono mt-1 sm:mt-0">Jun 2025 - Sep 2025</span>
+                    </div>
+                    <p class="text-accent2 text-sm font-semibold mb-4">SOLVATIVE</p>
+                    <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
+                        <li>• Managed content for LinkedIn, Instagram & Bluesky; updated websites using Storyblok CMS.</li>
+                        <li>• Created automated cold emailing workflows using n8n for lead generation.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Exp 3 -->
+            <div class="relative pl-14" data-aos="fade-up">
+                <div class="absolute left-0 top-1 w-12 h-12 bg-surface2 border-2 border-border rounded-xl flex items-center justify-center z-10">
+                    <i class="fa-solid fa-hashtag text-blue-400"></i>
+                </div>
+                <div class="group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold font-display text-white group-hover:text-blue-400 transition-colors">Digital Marketing Intern</h3>
+                        <span class="text-xs text-gray-500 font-mono mt-1 sm:mt-0">Mar 2025 - Jun 2025</span>
+                    </div>
+                    <p class="text-blue-400 text-sm font-semibold mb-4">Zeepty</p>
+                    <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
+                        <li>• Boosted social interactions by 30% and organic traffic by 12%.</li>
+                        <li>• Generated 15+ qualified leads/month; authored high-engagement blogs for Gen Z.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Exp 4 (Combined Early Roles) -->
+            <div class="relative pl-14" data-aos="fade-up">
+                <div class="absolute left-0 top-1 w-12 h-12 bg-surface2 border-2 border-border rounded-xl flex items-center justify-center z-10">
+                    <i class="fa-solid fa-clock-rotate-left text-gray-500"></i>
+                </div>
+                <div class="group">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
+                        <h3 class="text-xl font-bold font-display text-white">Early Roles</h3>
+                        <span class="text-xs text-gray-500 font-mono mt-1 sm:mt-0">2023 - 2025</span>
+                    </div>
+                    <p class="text-gray-500 text-sm font-semibold mb-4">Olcademy, Stellar8Labs & VR Academy</p>
+                    <ul class="space-y-2 text-gray-400 text-sm leading-relaxed">
+                        <li>• <strong class="text-gray-300">Olcademy:</strong> SEO optimization (Score 70+); developed Gen Z blog strategies.</li>
+                        <li>• <strong class="text-gray-300">Stellar8Labs:</strong> Fixed 15+ technical SEO issues; grew LinkedIn followers by 15%.</li>
+                        <li>• <strong class="text-gray-300">VR Academy:</strong> High School Teacher achieving 100% pass rate.</li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 md:py-24">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-10 font-mono" data-aos="fade-up">
-                Selected <span class="text-gradient">Projects</span>
-            </h2>
-
-            <!-- Project Filters -->
-            <div class="flex justify-center flex-wrap gap-2 md:gap-4 mb-8 md:mb-12" data-aos="fade-up" data-aos-delay="100">
-                <button class="filter-btn active px-4 md:px-6 py-2 rounded-full border border-brand-teal bg-brand-teal text-dark-900 font-bold transition-all text-sm md:text-base hover:shadow-[0_0_15px_rgba(45,212,191,0.4)]" onclick="filterProjects('all', this)">All</button>
-                <button class="filter-btn px-4 md:px-6 py-2 rounded-full border border-slate-600 text-slate-300 hover:border-brand-teal hover:text-brand-teal transition-all text-sm md:text-base" onclick="filterProjects('automation', this)">Automation</button>
-                <button class="filter-btn px-4 md:px-6 py-2 rounded-full border border-slate-600 text-slate-300 hover:border-brand-teal hover:text-brand-teal transition-all text-sm md:text-base" onclick="filterProjects('seo', this)">SEO</button>
-                <button class="filter-btn px-4 md:px-6 py-2 rounded-full border border-slate-600 text-slate-300 hover:border-brand-teal hover:text-brand-teal transition-all text-sm md:text-base" onclick="filterProjects('content', this)">Content</button>
+    <section id="projects" class="py-24 bg-[#080808] border-y border-border">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
+                <div>
+                    <h2 class="text-4xl font-black font-display text-white mb-4">Featured Work</h2>
+                    <p class="text-gray-400 max-w-md">A showcase of automated workflows, data dashboards, and scaling strategies.</p>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
-                <!-- Project 1: Power BI -->
-                <div class="project-card automation group relative rounded-2xl overflow-hidden glass border-0" data-aos="fade-up">
-                    <div class="img-zoom-container h-48 md:h-56 w-full relative">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Data Dashboard" class="img-zoom object-cover w-full h-full">
-                        <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href="https://www.linkedin.com/posts/biswajeet-marketing_datavisualization-powerbi-businessintelligence-activity-7406980680095744000-P3KG" target="_blank" class="px-6 py-2 bg-brand-teal text-dark-900 font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Analysis</a>
+                <!-- Project 1 -->
+                <a href="https://www.linkedin.com/posts/biswajeet-marketing_datavisualization-powerbi-businessintelligence-activity-7406980680095744000-P3KG" target="_blank" class="bento-card group block p-4" data-aos="fade-up">
+                    <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Power BI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
+                            <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-white">Power BI Lead Analytics</h3>
-                             <i class="fa-solid fa-chart-pie text-brand-purple"></i>
+                    <div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-accent">Power BI</span>
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-gray-300">Data Analytics</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-4">Interactive dashboard visualizing geography, revenue drivers, and audience segments.</p>
-                        <div class="flex gap-2">
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Power BI</span>
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Data</span>
-                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mb-2">Lead Analytics Dashboard</h3>
+                        <p class="text-gray-400 text-sm">Transformed raw education vertical data into interactive visuals, identifying key audience segments and geographical demand trends.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Project 2: Marketing Automation -->
-                <div class="project-card automation group relative rounded-2xl overflow-hidden glass border-0" data-aos="fade-up" data-aos-delay="100">
-                    <div class="img-zoom-container h-48 md:h-56 w-full relative">
-                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Automation Workflow" class="img-zoom object-cover w-full h-full">
-                        <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href="https://www.linkedin.com/posts/biswajeet-marketing_marketingautomation-pabblyconnect-zohocrm-activity-7381000848589451264-OZ5V" target="_blank" class="px-6 py-2 bg-brand-teal text-dark-900 font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Workflow</a>
+                <!-- Project 2 -->
+                <a href="https://www.linkedin.com/posts/biswajeet-marketing_marketingautomation-pabblyconnect-zohocrm-activity-7381000848589451264-OZ5V" target="_blank" class="bento-card group block p-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Automation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
+                            <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-white">Pabbly & Zoho Automation</h3>
-                             <i class="fa-solid fa-gears text-brand-purple"></i>
+                    <div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-accent2">Pabbly</span>
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-gray-300">Zoho CRM</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-4">Streamlined lead management and sales processes using multi-step automated workflows.</p>
-                         <div class="flex gap-2">
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Pabbly</span>
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Zoho</span>
-                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mb-2">Marketing Automation Flow</h3>
+                        <p class="text-gray-400 text-sm">Streamlined lead management and sales processes using multi-step automated workflows to eliminate manual data entry.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Project 3: Local SEO -->
-                <div class="project-card seo group relative rounded-2xl overflow-hidden glass border-0" data-aos="fade-up" data-aos-delay="200">
-                    <div class="img-zoom-container h-48 md:h-56 w-full relative">
-                        <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&w=800&q=80" alt="Map SEO" class="img-zoom object-cover w-full h-full">
-                        <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href="https://www.linkedin.com/posts/biswajeet-marketing_digitalmarketing-googlemybusiness-localseo-activity-7314855110101123073-ywIx" target="_blank" class="px-6 py-2 bg-brand-teal text-dark-900 font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Case Study</a>
+                <!-- Project 3 -->
+                <a href="https://www.linkedin.com/posts/biswajeet-marketing_digitalmarketing-googlemybusiness-localseo-activity-7314855110101123073-ywIx" target="_blank" class="bento-card group block p-4" data-aos="fade-up">
+                    <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&w=800&q=80" alt="SEO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
+                            <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
                         </div>
                     </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-white">Google My Business SEO</h3>
-                             <i class="fa-solid fa-map-location-dot text-brand-purple"></i>
+                    <div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-yellow-500">Local SEO</span>
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-gray-300">GMB</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-4">Optimized GMB profile and implemented local SEO strategies to maximize visibility.</p>
-                         <div class="flex gap-2">
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Local SEO</span>
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">GMB</span>
-                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mb-2">Google My Business SEO</h3>
+                        <p class="text-gray-400 text-sm">Optimized GMB profile and implemented local search strategies to dramatically improve client visibility and foot traffic.</p>
                     </div>
-                </div>
+                </a>
 
-                <!-- Project 4: Social Media -->
-                <div class="project-card content group relative rounded-2xl overflow-hidden glass border-0" data-aos="fade-up">
-                    <div class="img-zoom-container h-48 md:h-56 w-full relative">
-                         <!-- UPDATED IMAGE -->
-                        <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="Social Analytics Growth" class="img-zoom object-cover w-full h-full">
-                         <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href="https://www.linkedin.com/company/zeepty/posts/?feedView=all" target="_blank" class="px-6 py-2 bg-brand-teal text-dark-900 font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">View Page</a>
+                <!-- Project 4 -->
+                <a href="https://www.linkedin.com/company/zeepty/posts/?feedView=all" target="_blank" class="bento-card group block p-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="Social Media" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
+                            <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
                         </div>
                     </div>
-                     <div class="p-6">
-                        <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-white">Zeepty Social Growth</h3>
-                             <i class="fa-solid fa-hashtag text-brand-purple"></i>
+                    <div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-blue-400">Social Media</span>
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-gray-300">Growth</span>
                         </div>
-                        <p class="text-slate-400 text-sm mb-4">Achieved 40% increase in brand mentions and 100+ leads through organic campaigns.</p>
-                        <div class="flex gap-2">
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Strategy</span>
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Growth</span>
-                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mb-2">Zeepty Social Growth</h3>
+                        <p class="text-gray-400 text-sm">Achieved 40% increase in brand mentions and generated 100+ qualified leads through targeted organic campaigns.</p>
                     </div>
-                </div>
-
-                <!-- Project 5: Content Marketing -->
-                <div class="project-card content group relative rounded-2xl overflow-hidden glass border-0" data-aos="fade-up" data-aos-delay="100">
-                    <div class="img-zoom-container h-48 md:h-56 w-full relative">
-                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Writing" class="img-zoom object-cover w-full h-full">
-                        <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href="https://peerfives.com/gratitude-journal/" target="_blank" class="px-6 py-2 bg-brand-teal text-dark-900 font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Read Article</a>
-                        </div>
-                    </div>
-                     <div class="p-6">
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-white">Peerfives Content Strategy</h3>
-                             <i class="fa-solid fa-pen-nib text-brand-purple"></i>
-                        </div>
-                        <p class="text-slate-400 text-sm mb-4">Blog strategy focusing on user engagement, leading to a 25% increase in retention.</p>
-                         <div class="flex gap-2">
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Blogging</span>
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Engagement</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6: Branding -->
-                <div class="project-card seo content group relative rounded-2xl overflow-hidden glass border-0" data-aos="fade-up" data-aos-delay="200">
-                     <div class="img-zoom-container h-48 md:h-56 w-full relative">
-                        <!-- UPDATED IMAGE -->
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Digital Strategy" class="img-zoom object-cover w-full h-full">
-                         <div class="absolute inset-0 bg-dark-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                            <a href="https://biswajeet-stack.github.io/Pehchan-/" target="_blank" class="px-6 py-2 bg-brand-teal text-dark-900 font-bold rounded-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">Visit Site</a>
-                        </div>
-                    </div>
-                    <div class="p-6">
-                         <div class="flex justify-between items-start mb-2">
-                             <h3 class="text-xl font-bold text-white">PehchanPlus Brand</h3>
-                             <i class="fa-solid fa-fingerprint text-brand-purple"></i>
-                        </div>
-                        <p class="text-slate-400 text-sm mb-4">Personal digital marketing brand providing comprehensive SEO and SEM solutions.</p>
-                        <div class="flex gap-2">
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Branding</span>
-                            <span class="text-xs font-mono text-brand-teal bg-brand-teal/10 px-2 py-1 rounded">Web</span>
-                        </div>
-                    </div>
-                </div>
-
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 md:py-24 bg-dark-800/30">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-16 font-mono" data-aos="fade-up">
-                Technical <span class="text-gradient">Arsenal</span>
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                
-                <!-- Category 1 -->
-                <div class="glass p-6 md:p-8 rounded-2xl hover:border-brand-teal/50 transition-colors" data-aos="fade-up">
-                    <div class="flex items-center gap-4 mb-4 md:mb-6">
-                        <div class="p-3 bg-brand-teal/20 rounded-lg text-brand-teal">
-                            <i class="fa-solid fa-robot text-2xl"></i>
+    <!-- Education & Certifications -->
+    <section id="education" class="py-24 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            <!-- Education -->
+            <div>
+                <h2 class="text-3xl font-black font-display text-white mb-8">Education</h2>
+                <div class="space-y-4">
+                    <div class="bento-card p-6" data-aos="fade-up">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white">MBA</h3>
+                            <span class="text-xs text-accent font-mono bg-accent/10 px-2 py-1 rounded">2024 - Present</span>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Automation & CRM</h3>
+                        <p class="text-gray-400 text-sm">Lovely Professional University | Punjab</p>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Pabbly</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">AiSensy</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Zoho CRM</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Webhooks</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">n8n</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">AI Tools</span>
+                    <div class="bento-card p-6" data-aos="fade-up" data-aos-delay="100">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-bold text-white">B.Sc. Zoology Honors</h3>
+                            <span class="text-xs text-gray-400 font-mono bg-surface2 px-2 py-1 rounded border border-border">2020 - 2023</span>
+                        </div>
+                        <p class="text-gray-400 text-sm mb-2">Jupiter Degree College | Bhubaneswar</p>
+                        <span class="text-xs font-semibold text-accent2">CGPA: 8.99</span>
                     </div>
                 </div>
+            </div>
 
-                <!-- Category 2 -->
-                <div class="glass p-6 md:p-8 rounded-2xl hover:border-brand-purple/50 transition-colors" data-aos="fade-up" data-aos-delay="100">
-                     <div class="flex items-center gap-4 mb-4 md:mb-6">
-                        <div class="p-3 bg-brand-purple/20 rounded-lg text-brand-purple">
-                            <i class="fa-solid fa-magnifying-glass-chart text-2xl"></i>
+            <!-- Certifications (Scrollable track) -->
+            <div id="certifications">
+                <h2 class="text-3xl font-black font-display text-white mb-8">Certifications</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 h-[300px] overflow-y-auto pr-2 no-scrollbar">
+                    
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-chart-line text-accent"></i>
                         </div>
-                        <h3 class="text-xl font-bold text-white">Marketing & SEO</h3>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Google Analytics 4 (2025)</h4>
+                            <p class="text-xs text-gray-500">Udemy</p>
+                        </div>
                     </div>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Google Analytics 4</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Google Ads</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">SEO (Tech & Local)</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Semrush</span>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up" data-aos-delay="50">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-brands fa-google text-gray-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Digital Marketing & E-com</h4>
+                            <p class="text-xs text-gray-500">Coursera</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-brands fa-google text-gray-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Data Analytics</h4>
+                            <p class="text-xs text-gray-500">Coursera</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-bullhorn text-accent2"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">PPC Fundamentals</h4>
+                            <p class="text-xs text-gray-500">Semrush</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-globe text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">International SEO</h4>
+                            <p class="text-xs text-gray-500">Semrush</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-brain text-pink-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Generative AI Mastermind</h4>
+                            <p class="text-xs text-gray-500">Outskill</p>
+                        </div>
                     </div>
                 </div>
-
-                <!-- Category 3 -->
-                <div class="glass p-6 md:p-8 rounded-2xl hover:border-blue-500/50 transition-colors" data-aos="fade-up" data-aos-delay="200">
-                     <div class="flex items-center gap-4 mb-4 md:mb-6">
-                        <div class="p-3 bg-blue-500/20 rounded-lg text-blue-400">
-                            <i class="fa-solid fa-chart-column text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Data & Design</h3>
-                    </div>
-                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Power BI</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">MS Office Suite</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Figma</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Canva</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Storyblok</span>
-                    </div>
-                </div>
-
-                <!-- Category 4: Soft Skills (New) -->
-                <div class="glass p-6 md:p-8 rounded-2xl hover:border-yellow-500/50 transition-colors" data-aos="fade-up" data-aos-delay="300">
-                     <div class="flex items-center gap-4 mb-4 md:mb-6">
-                        <div class="p-3 bg-yellow-500/20 rounded-lg text-yellow-500">
-                            <i class="fa-solid fa-users-gear text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Soft Skills</h3>
-                    </div>
-                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Leadership</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Critical Thinking</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Collaboration</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Adaptability</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Multitasking</span>
-                        <span class="px-3 py-1 bg-dark-900 rounded-md text-sm text-slate-300 border border-dark-700">Eager to Learn</span>
-                    </div>
-                </div>
-
+                <p class="text-xs text-gray-600 mt-4 text-center"><i class="fa-solid fa-arrow-down-long animate-bounce"></i> Scroll for more</p>
             </div>
         </div>
     </section>
 
-     <!-- Certifications Section -->
-    <section id="certifications" class="py-16 md:py-24">
-        <div class="container mx-auto px-6">
-             <h2 class="text-3xl md:text-5xl font-bold text-center mb-12 md:mb-16 font-mono" data-aos="fade-up">
-                Certifications
-            </h2>
+    <!-- Footer / CTA -->
+    <footer class="mt-12 py-24 bg-[#020202] border-t border-border relative overflow-hidden">
+        <!-- Glow effect -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[100px] bg-accent filter blur-[100px] opacity-10"></div>
+        
+        <div class="container mx-auto px-6 text-center relative z-10 max-w-2xl">
+            <h2 class="text-4xl md:text-5xl font-black font-display text-white mb-6">Let's build something exceptional.</h2>
+            <p class="text-gray-400 mb-10 text-lg">Looking to scale your brand's digital presence? Let's talk about automation, data, and growth.</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Cert Card Template -->
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-brands fa-google text-2xl text-slate-400 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Google Digital Marketing</h4>
-                        <p class="text-sm text-slate-500">Coursera</p>
-                    </div>
-                </div>
-                 <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-brands fa-google text-2xl text-slate-400 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Google Data Analytics</h4>
-                        <p class="text-sm text-slate-500">Coursera</p>
-                    </div>
-                </div>
-                 <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-solid fa-chart-line text-2xl text-brand-teal mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Google Analytics 4 (2025)</h4>
-                        <p class="text-sm text-slate-500">Udemy</p>
-                    </div>
-                </div>
-                 <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-brands fa-google text-2xl text-slate-400 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Google AI Essentials</h4>
-                        <p class="text-sm text-slate-500">Coursera</p>
-                    </div>
-                </div>
-                 <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-solid fa-bullhorn text-2xl text-slate-400 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">PPC Fundamentals</h4>
-                        <p class="text-sm text-slate-500">Semrush</p>
-                    </div>
-                </div>
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-solid fa-globe text-2xl text-slate-400 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">International SEO</h4>
-                        <p class="text-sm text-slate-500">Semrush</p>
-                    </div>
-                </div>
-                
-                <!-- New Certifications Added -->
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-solid fa-face-smile text-2xl text-yellow-500 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Emoji Marketing</h4>
-                        <p class="text-sm text-slate-500">Semrush</p>
-                    </div>
-                </div>
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-solid fa-magnifying-glass text-2xl text-brand-teal mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Keyword Research Essentials</h4>
-                        <p class="text-sm text-slate-500">Semrush</p>
-                    </div>
-                </div>
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-brands fa-wordpress text-2xl text-blue-400 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Build Website w/ WordPress</h4>
-                        <p class="text-sm text-slate-500">Coursera</p>
-                    </div>
-                </div>
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-solid fa-brain text-2xl text-brand-purple mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Generative AI Mastermind</h4>
-                        <p class="text-sm text-slate-500">Outskill</p>
-                    </div>
-                </div>
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-brands fa-figma text-2xl text-pink-500 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Figma UI Design</h4>
-                        <p class="text-sm text-slate-500">Juno</p>
-                    </div>
-                </div>
-                <div class="bg-dark-900 border border-brand-teal/50 p-6 rounded-lg shadow-[0_0_10px_rgba(45,212,191,0.1)] flex items-start gap-4">
-                    <i class="fa-brands fa-linkedin text-2xl text-blue-500 mt-1"></i>
-                    <div>
-                        <h4 class="font-bold text-white">Business Analysis Process</h4>
-                        <p class="text-sm text-slate-500">LinkedIn Learning</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+            <a href="mailto:biswajeetkumarp@gmail.com" class="inline-flex items-center gap-3 px-8 py-4 bg-white text-base font-bold rounded-full hover:scale-105 transition-transform mb-16">
+                <i class="fa-solid fa-envelope"></i> Get In Touch
+            </a>
 
-    <!-- Footer -->
-    <footer class="bg-dark-900 border-t border-dark-700 py-12 relative overflow-hidden">
-        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-3xl h-1 bg-gradient-to-r from-transparent via-brand-teal to-transparent"></div>
-        <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-2xl md:text-3xl font-bold text-white mb-6">Let's Connect</h2>
-            <p class="text-slate-400 max-w-lg mx-auto mb-8 text-sm md:text-base">Ready to automate your growth? Reach out for collaborations or opportunities.</p>
-            
-            <div class="flex justify-center gap-8 mb-12">
-                <a href="mailto:biswajeetkumarp@gmail.com" class="text-slate-400 hover:text-brand-teal transition-transform hover:-translate-y-1">
-                    <i class="fa-solid fa-envelope text-3xl"></i>
+            <div class="flex justify-center gap-6 mb-12 border-t border-border pt-12">
+                <a href="http://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-all">
+                    <i class="fa-brands fa-linkedin-in"></i>
                 </a>
-                <!-- Updated to HTTPS -->
-                <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="text-slate-400 hover:text-brand-purple transition-transform hover:-translate-y-1">
-                    <i class="fa-brands fa-linkedin text-3xl"></i>
-                </a>
-                <a href="tel:+919294778808" class="text-slate-400 hover:text-blue-500 transition-transform hover:-translate-y-1">
-                    <i class="fa-solid fa-phone text-3xl"></i>
+                <a href="tel:+919294778808" class="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center text-gray-400 hover:text-accent2 hover:border-accent2 transition-all">
+                    <i class="fa-solid fa-phone"></i>
                 </a>
             </div>
             
-            <p class="text-slate-600 text-sm">&copy; 2025 Biswajeet Kumar Parida. Built with Love <i class="fa-solid fa-heart text-red-500"></i>.</p>
+            <p class="text-gray-600 text-sm">&copy; 2026 Biswajeet Parida. Designed with intent.</p>
         </div>
     </footer>
-
-    <!-- Back to Top Button -->
-    <button id="back-to-top" class="fixed bottom-4 right-4 md:bottom-8 md:right-8 bg-brand-teal text-dark-900 p-3 md:p-4 rounded-full shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 hover:scale-110 z-50 focus:outline-none hover:shadow-[0_0_15px_rgba(45,212,191,0.5)]">
-        <i class="fa-solid fa-arrow-up text-lg md:text-xl"></i>
-    </button>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Typing Effect & Image Changer
-        const words = ["Digital Strategist.", "Automation Expert.", "SEO Specialist."];
-        const heroImages = [
-            "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80", // Digital Strategist (Charts/Analytics)
-            "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80", // Automation Expert (Tech/Circuits)
-            "https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&w=800&q=80"  // SEO Specialist (Maps/Search)
-        ];
-        
-        let i = 0;
-        let timer;
-
-        // Preload images to avoid flickering
-        heroImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-
-        function typeWriter() {
-            const heading = document.getElementById("typing-text");
-            const heroImg = document.getElementById("hero-img");
-            const word = words[i];
-            let j = 0;
-            let isDeleting = false;
-
-            // Set initial image
-            if (i === 0 && j === 0 && !isDeleting) {
-                 heroImg.src = heroImages[0];
-            }
-
-            function loop() {
-                heading.innerHTML = word.substring(0, j);
-                
-                if (isDeleting) {
-                    j--;
-                } else {
-                    j++;
-                }
-
-                if (!isDeleting && j === word.length + 1) {
-                    isDeleting = true;
-                    setTimeout(loop, 2000); // Pause at end
-                } else if (isDeleting && j === 0) {
-                    isDeleting = false;
-                    i = (i + 1) % words.length;
-                    
-                    // Change Image logic with fade effect
-                    heroImg.classList.add('fade-out'); // Start fading out (1s duration)
-                    
-                    // Wait 800ms before swapping source to ensure it's mostly faded out
-                    setTimeout(() => {
-                        heroImg.src = heroImages[i];
-                        
-                        const fadeIn = () => {
-                            heroImg.classList.remove('fade-out'); // Fade back in
-                        };
-
-                        if (heroImg.complete) {
-                            fadeIn();
-                        } else {
-                            heroImg.onload = fadeIn;
-                        }
-                    }, 800); 
-
-                    setTimeout(typeWriter, 500); // Pause before next word typing starts
-                    return;
-                } else {
-                    setTimeout(loop, isDeleting ? 100 : 200);
-                }
-            }
-            loop();
-        }
-
-        // Project Filter Logic
-        function filterProjects(category, btn) {
-            // Update buttons
-            document.querySelectorAll('.filter-btn').forEach(b => {
-                b.classList.remove('active', 'bg-brand-teal', 'text-dark-900', 'border-brand-teal', 'font-bold');
-                b.classList.add('text-slate-300', 'border-slate-600');
-            });
-            btn.classList.add('active', 'bg-brand-teal', 'text-dark-900', 'border-brand-teal', 'font-bold');
-            btn.classList.remove('text-slate-300', 'border-slate-600');
-
-            // Filter items
-            const items = document.querySelectorAll('.project-card');
-            items.forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                    // Re-trigger AOS
-                    item.classList.add('aos-animate');
-                } else {
-                    item.style.display = 'none';
-                    item.classList.remove('aos-animate');
-                }
-            });
-        }
-
-        // Back to Top Logic
-        const backToTopBtn = document.getElementById('back-to-top');
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopBtn.classList.remove('translate-y-20', 'opacity-0');
-            } else {
-                backToTopBtn.classList.add('translate-y-20', 'opacity-0');
-            }
-        });
-
-        backToTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 20,
+            duration: 800,
+            easing: 'ease-out-expo',
         });
 
         // Mobile Menu Toggle
@@ -868,17 +572,10 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Initialization: Wait for window load
-        window.addEventListener('load', () => {
-            // Start Typewriter
-            typeWriter();
-
-            // Initialize AOS after content is ready
-            AOS.init({
-                once: true,
-                offset: 100,
-                duration: 800,
-                easing: 'ease-out-cubic',
+        // Close mobile menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
         });
     </script>
