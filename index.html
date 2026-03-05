@@ -51,18 +51,76 @@
     </script>
 
     <style>
+        :root {
+            --scroll: 0;
+        }
+
         body {
             background-color: #050505;
             color: #a3a3a3;
             overflow-x: hidden;
-            background-image: radial-gradient(circle at 50% 0%, #1a1a1a 0%, transparent 70%);
+            isolation: isolate;
         }
 
-        /* Typography Gradients */
+        /* Ambient Dynamic Background */
+        .ambient-bg {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+            background: #050505;
+        }
+        
+        .ambient-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            will-change: transform;
+            transition: transform 0.1s ease-out;
+        }
+
+        /* Cyan Blob: Moves down and right as you scroll */
+        .blob-1 {
+            width: 70vw; height: 70vw;
+            max-width: 800px; max-height: 800px;
+            background: #06b6d4;
+            top: -20%; left: -10%;
+            transform: translate(calc(var(--scroll) * 0.15px), calc(var(--scroll) * 0.25px));
+        }
+
+        /* Violet Blob: Moves up and left as you scroll */
+        .blob-2 {
+            width: 60vw; height: 60vw;
+            max-width: 700px; max-height: 700px;
+            background: #8b5cf6;
+            bottom: -10%; right: -10%;
+            transform: translate(calc(var(--scroll) * -0.15px), calc(var(--scroll) * -0.2px));
+        }
+
+        /* Pink Blob: Center subtle movement */
+        .blob-3 {
+            width: 50vw; height: 50vw;
+            max-width: 600px; max-height: 600px;
+            background: #ec4899;
+            top: 30%; left: 30%;
+            opacity: 0.08;
+            transform: translate(calc(var(--scroll) * 0.05px), calc(var(--scroll) * -0.1px));
+        }
+
+        /* Animated Typography Gradient */
         .text-gradient {
-            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            background: linear-gradient(to right, #06b6d4, #8b5cf6, #ec4899, #06b6d4);
+            background-size: 300% auto;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            animation: gradientSwitch 4s linear infinite;
+        }
+
+        @keyframes gradientSwitch {
+            0% { background-position: 0% center; }
+            100% { background-position: 300% center; }
         }
 
         /* Floating Nav */
@@ -76,7 +134,8 @@
 
         /* Bento Box Cards */
         .bento-card {
-            background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+            background: linear-gradient(180deg, rgba(17,17,17,0.8) 0%, rgba(10,10,10,0.8) 100%);
+            backdrop-filter: blur(20px);
             border: 1px solid #262626;
             border-radius: 24px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -128,6 +187,13 @@
 </head>
 <body class="antialiased selection:bg-accent selection:text-base">
 
+    <!-- Ambient Dynamic Background -->
+    <div class="ambient-bg">
+        <div class="ambient-blob blob-1"></div>
+        <div class="ambient-blob blob-2"></div>
+        <div class="ambient-blob blob-3"></div>
+    </div>
+
     <!-- Floating Capsule Navigation -->
     <div class="fixed top-6 left-1/2 transform -translate-x-1/2 z-50 w-[90%] max-w-2xl transition-all duration-300">
         <nav class="capsule-nav rounded-full px-6 py-3 flex justify-between items-center">
@@ -169,7 +235,7 @@
     <!-- Hero Section -->
     <section id="home" class="pt-40 pb-20 px-6 max-w-6xl mx-auto flex flex-col items-center text-center">
         <div data-aos="fade-up" data-aos-duration="1000">
-            <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 text-xs font-semibold tracking-wide text-accent bg-accent/10 rounded-full border border-accent/20">
+            <div class="inline-flex items-center gap-2 px-3 py-1 mb-8 text-xs font-semibold tracking-wide text-accent bg-accent/10 rounded-full border border-accent/20 backdrop-blur-sm">
                 <span class="relative flex h-2 w-2">
                   <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
                   <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
@@ -190,10 +256,10 @@
                 <a href="#projects" class="px-8 py-4 bg-white text-base font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2">
                     View Portfolio <i class="fa-solid fa-arrow-down"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="px-8 py-4 bg-surface border border-border text-white font-bold rounded-full hover:bg-border transition-colors flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="px-8 py-4 bg-surface/50 backdrop-blur-sm border border-border text-white font-bold rounded-full hover:bg-border transition-colors flex items-center gap-2">
                     <i class="fa-brands fa-linkedin text-accent"></i> LinkedIn
                 </a>
-                <a href="https://drive.google.com/file/d/1xkI-SJkHXlzLqY5tJENBqVXJEDP6NQYG/view?usp=sharing" target="_blank" class="px-8 py-4 bg-surface border border-border text-white font-bold rounded-full hover:bg-border transition-colors flex items-center gap-2">
+                <a href="https://drive.google.com/file/d/1xkI-SJkHXlzLqY5tJENBqVXJEDP6NQYG/view?usp=sharing" target="_blank" class="px-8 py-4 bg-surface/50 backdrop-blur-sm border border-border text-white font-bold rounded-full hover:bg-border transition-colors flex items-center gap-2">
                     <i class="fa-solid fa-file-pdf text-accent2"></i> Resume
                 </a>
             </div>
@@ -222,7 +288,7 @@
                 <div class="relative z-10 flex justify-between items-start h-full flex-col">
                     <div class="px-2 py-1 bg-accent/20 backdrop-blur border border-accent/30 rounded text-xs font-bold text-accent mb-4">Current</div>
                     <div>
-                        <h3 class="text-xl font-bold font-display text-white mb-1">Automation Specialist</h3>
+                        <h3 class="text-xl font-bold font-display text-white mb-1">Digital Marketing Specialist</h3>
                         <p class="text-sm text-gray-300">@ Om Space Rocket & Exploration</p>
                     </div>
                 </div>
@@ -273,7 +339,7 @@
                 </div>
                 <div class="group">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-2">
-                        <h3 class="text-xl font-bold font-display text-white group-hover:text-accent transition-colors">Educational Marketing Specialist</h3>
+                        <h3 class="text-xl font-bold font-display text-white group-hover:text-accent transition-colors">Digital Marketing Specialist</h3>
                         <span class="text-xs text-gray-500 font-mono mt-1 sm:mt-0">Sep 2025 - Present</span>
                     </div>
                     <p class="text-accent text-sm font-semibold mb-4">Om Space Rocket and Exploration</p>
@@ -344,7 +410,7 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-[#080808] border-y border-border">
+    <section id="projects" class="py-24 bg-surface border-y border-border">
         <div class="container mx-auto px-6 max-w-6xl">
             <div class="flex flex-col md:flex-row justify-between items-end mb-12" data-aos="fade-up">
                 <div>
@@ -353,10 +419,18 @@
                 </div>
             </div>
 
+            <!-- Project Filters -->
+            <div class="flex flex-wrap gap-3 mb-10" data-aos="fade-up">
+                <button class="filter-btn active px-5 py-2 rounded-full border border-accent bg-accent text-base font-bold transition-all text-sm shadow-[0_0_15px_rgba(6,182,212,0.4)]" onclick="filterProjects('all', this)">All</button>
+                <button class="filter-btn px-5 py-2 rounded-full border border-border text-gray-400 hover:border-accent hover:text-accent transition-all text-sm" onclick="filterProjects('automation', this)">Automation</button>
+                <button class="filter-btn px-5 py-2 rounded-full border border-border text-gray-400 hover:border-accent hover:text-accent transition-all text-sm" onclick="filterProjects('seo', this)">SEO</button>
+                <button class="filter-btn px-5 py-2 rounded-full border border-border text-gray-400 hover:border-accent hover:text-accent transition-all text-sm" onclick="filterProjects('content', this)">Content</button>
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 
                 <!-- Project 1 -->
-                <a href="https://www.linkedin.com/posts/biswajeet-marketing_datavisualization-powerbi-businessintelligence-activity-7406980680095744000-P3KG" target="_blank" class="bento-card group block p-4" data-aos="fade-up">
+                <a href="https://www.linkedin.com/posts/biswajeet-marketing_datavisualization-powerbi-businessintelligence-activity-7406980680095744000-P3KG" target="_blank" class="bento-card project-card automation group block p-4" data-aos="fade-up">
                     <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
                         <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" alt="Power BI" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -375,7 +449,7 @@
                 </a>
 
                 <!-- Project 2 -->
-                <a href="https://www.linkedin.com/posts/biswajeet-marketing_marketingautomation-pabblyconnect-zohocrm-activity-7381000848589451264-OZ5V" target="_blank" class="bento-card group block p-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://www.linkedin.com/posts/biswajeet-marketing_marketingautomation-pabblyconnect-zohocrm-activity-7381000848589451264-OZ5V" target="_blank" class="bento-card project-card automation group block p-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
                         <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
                         <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80" alt="Automation" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -394,7 +468,7 @@
                 </a>
 
                 <!-- Project 3 -->
-                <a href="https://www.linkedin.com/posts/biswajeet-marketing_digitalmarketing-googlemybusiness-localseo-activity-7314855110101123073-ywIx" target="_blank" class="bento-card group block p-4" data-aos="fade-up">
+                <a href="https://www.linkedin.com/posts/biswajeet-marketing_digitalmarketing-googlemybusiness-localseo-activity-7314855110101123073-ywIx" target="_blank" class="bento-card project-card seo group block p-4" data-aos="fade-up">
                     <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
                         <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
                         <img src="https://images.unsplash.com/photo-1569025690938-a00729c9e1f9?auto=format&fit=crop&w=800&q=80" alt="SEO" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
@@ -413,10 +487,10 @@
                 </a>
 
                 <!-- Project 4 -->
-                <a href="https://www.linkedin.com/company/zeepty/posts/?feedView=all" target="_blank" class="bento-card group block p-4" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://www.linkedin.com/company/zeepty/posts/?feedView=all" target="_blank" class="bento-card project-card content group block p-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
                         <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
-                        <img src="https://images.pexels.com/photos/607812/pexels-photo-607812.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&dpr=1" alt="Social Media" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?auto=format&fit=crop&w=800&q=80" alt="Social Media" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
                             <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
                         </div>
@@ -430,6 +504,45 @@
                         <p class="text-gray-400 text-sm">Achieved 40% increase in brand mentions and generated 100+ qualified leads through targeted organic campaigns.</p>
                     </div>
                 </a>
+
+                <!-- Project 5 -->
+                <a href="https://peerfives.com/gratitude-journal/" target="_blank" class="bento-card project-card content group block p-4" data-aos="fade-up">
+                    <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=800&q=80" alt="Content Marketing" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
+                            <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-accent2">Blogging</span>
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-gray-300">Strategy</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mb-2">Peerfives Content Strategy</h3>
+                        <p class="text-gray-400 text-sm">Developed and executed a blog strategy focused on user engagement, leading to a 25% increase in site retention.</p>
+                    </div>
+                </a>
+
+                <!-- Project 6 -->
+                <a href="https://biswajeet-stack.github.io/Pehchan-/" target="_blank" class="bento-card project-card seo content group block p-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-64 w-full rounded-xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-base/20 group-hover:bg-transparent transition-colors z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?auto=format&fit=crop&w=800&q=80" alt="Brand Identity" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-4 right-4 z-20 bg-base/80 backdrop-blur-md px-3 py-1 rounded-full border border-border">
+                            <i class="fa-solid fa-arrow-right -rotate-45 text-white"></i>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex gap-2 mb-3">
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-accent">Branding</span>
+                            <span class="px-2 py-1 bg-surface2 rounded text-xs font-semibold text-gray-300">Web</span>
+                        </div>
+                        <h3 class="text-2xl font-bold font-display text-white mb-2">PehchanPlus Brand</h3>
+                        <p class="text-gray-400 text-sm">Created a personal digital marketing agency brand providing comprehensive SEO and SEM solutions for small businesses.</p>
+                    </div>
+                </a>
+
             </div>
         </div>
     </section>
@@ -460,10 +573,10 @@
                 </div>
             </div>
 
-            <!-- Certifications (Scrollable track) -->
+            <!-- Certifications -->
             <div id="certifications">
                 <h2 class="text-3xl font-black font-display text-white mb-8">Certifications</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 h-[300px] overflow-y-auto pr-2 no-scrollbar">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     
                     <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
                         <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
@@ -497,6 +610,16 @@
 
                     <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
                         <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-brands fa-google text-gray-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Google AI Essentials</h4>
+                            <p class="text-xs text-gray-500">Coursera</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
                             <i class="fa-solid fa-bullhorn text-accent2"></i>
                         </div>
                         <div>
@@ -524,8 +647,58 @@
                             <p class="text-xs text-gray-500">Outskill</p>
                         </div>
                     </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-brands fa-linkedin text-blue-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Business Analysis & Process</h4>
+                            <p class="text-xs text-gray-500">LinkedIn Learning</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-brands fa-figma text-purple-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Figma UI Design</h4>
+                            <p class="text-xs text-gray-500">Juno</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-face-smile text-yellow-500"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Emoji Marketing</h4>
+                            <p class="text-xs text-gray-500">Semrush</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-solid fa-magnifying-glass text-accent"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Keyword Research Essentials</h4>
+                            <p class="text-xs text-gray-500">Semrush</p>
+                        </div>
+                    </div>
+
+                    <div class="bento-card p-4 flex items-center gap-4" data-aos="fade-up">
+                        <div class="w-10 h-10 rounded-full bg-surface2 border border-border flex items-center justify-center flex-shrink-0">
+                            <i class="fa-brands fa-wordpress text-blue-400"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-sm font-bold text-white leading-tight">Build a site with WordPress</h4>
+                            <p class="text-xs text-gray-500">Coursera</p>
+                        </div>
+                    </div>
+
                 </div>
-                <p class="text-xs text-gray-600 mt-4 text-center"><i class="fa-solid fa-arrow-down-long animate-bounce"></i> Scroll for more</p>
             </div>
         </div>
     </section>
@@ -545,7 +718,7 @@
             </a>
 
             <div class="flex justify-center gap-6 mb-12 border-t border-border pt-12">
-                <a href="http://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-all">
+                <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" class="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center text-gray-400 hover:text-accent hover:border-accent transition-all">
                     <i class="fa-brands fa-linkedin-in"></i>
                 </a>
                 <a href="tel:+919294778808" class="w-12 h-12 rounded-full bg-surface border border-border flex items-center justify-center text-gray-400 hover:text-accent2 hover:border-accent2 transition-all">
@@ -560,6 +733,12 @@
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
+        // Track Scroll for Background Parallax & Elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            document.documentElement.style.setProperty('--scroll', scrolled);
+        });
+
         // Initialize Animations
         AOS.init({
             once: true,
@@ -567,6 +746,29 @@
             duration: 800,
             easing: 'ease-out-expo',
         });
+
+        // Project Filter Logic
+        function filterProjects(category, btn) {
+            // Update buttons
+            document.querySelectorAll('.filter-btn').forEach(b => {
+                b.classList.remove('active', 'bg-accent', 'text-base', 'border-accent', 'shadow-[0_0_15px_rgba(6,182,212,0.4)]');
+                b.classList.add('text-gray-400', 'border-border', 'bg-transparent');
+            });
+            btn.classList.add('active', 'bg-accent', 'text-base', 'border-accent', 'shadow-[0_0_15px_rgba(6,182,212,0.4)]');
+            btn.classList.remove('text-gray-400', 'border-border', 'bg-transparent');
+
+            // Filter items
+            const items = document.querySelectorAll('.project-card');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                    item.classList.add('aos-animate');
+                } else {
+                    item.style.display = 'none';
+                    item.classList.remove('aos-animate');
+                }
+            });
+        }
 
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
