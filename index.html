@@ -9,6 +9,16 @@
     <meta name="title" content="Biswajeet Parida | Digital Marketing Strategist">
     <meta name="description" content="Portfolio of Biswajeet Parida, a Digital Marketing Strategist specializing in marketing automation, SEO, and data visualization based in Ahmedabad.">
     
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-B5ERB8DNP6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-B5ERB8DNP6');
+    </script>
+    
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -94,7 +104,6 @@
 </head>
 <body class="antialiased selection:bg-brand-500 selection:text-white">
 
-    <!-- Navbar -->
     <nav class="fixed w-full top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="font-display font-bold text-xl tracking-tight text-brand-dark">
@@ -129,7 +138,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="relative pt-40 pb-20 overflow-hidden">
         <div class="absolute inset-0 bg-grid pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -149,7 +157,7 @@
                 </p>
                 
                 <div class="flex flex-wrap gap-4">
-                    <a href="#work" class="bg-brand-500 text-white px-7 py-3.5 rounded-lg font-medium hover:bg-teal-400 transition-transform hover:scale-105 flex items-center gap-2">
+                    <a href="#work" class="bg-brand-500 text-white px-7 py-3.5 rounded-lg font-medium hover:bg-teal-400 transition-transform hover:scale-105 flex items-center gap-2 shadow-lg shadow-brand-500/20">
                         View Portfolio <i class="fa-solid fa-arrow-down text-sm"></i>
                     </a>
                     <a href="https://www.linkedin.com/in/biswajeet-marketing" target="_blank" rel="noopener noreferrer" class="bg-white text-slate-700 border border-slate-200 px-7 py-3.5 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-300 transition-colors flex items-center gap-2 shadow-sm">
@@ -163,34 +171,70 @@
         </div>
     </section>
 
-    <!-- Core Stack / Stats -->
-    <section class="py-12 border-y border-slate-200 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center md:text-left">
-                <div data-aos="fade-up" data-aos-delay="50">
-                    <p class="text-4xl font-display font-bold text-brand-dark mb-1">20+</p>
-                    <p class="text-sm font-medium text-slate-500 uppercase tracking-wide">Automations</p>
+    <!-- Stats & Tech Bento -->
+    <section class="py-10 px-6 max-w-7xl mx-auto z-20 relative">
+        <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-auto md:auto-rows-[200px]">
+            
+            <!-- Location Card -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm col-span-1 md:col-span-2 lg:col-span-2 flex flex-col justify-between card-hover" data-aos="fade-up" data-aos-delay="50">
+                <div class="flex justify-between items-start">
+                    <div class="w-12 h-12 bg-slate-50 text-slate-600 rounded-full flex items-center justify-center border border-slate-100">
+                        <i class="fa-solid fa-location-dot text-xl"></i>
+                    </div>
+                    <span class="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Base Location</span>
                 </div>
-                <div data-aos="fade-up" data-aos-delay="100">
-                    <p class="text-4xl font-display font-bold text-brand-dark mb-1">30%</p>
-                    <p class="text-sm font-medium text-slate-500 uppercase tracking-wide">Growth Avg</p>
+                <div class="mt-4 md:mt-0">
+                    <h3 class="text-2xl md:text-3xl font-bold font-display text-brand-dark mb-1">Ahmedabad, India</h3>
+                    <p class="text-sm text-slate-500 font-medium">Open to Remote / Relocation</p>
                 </div>
-                <div class="col-span-2 flex flex-col justify-center" data-aos="fade-up" data-aos-delay="150">
-                    <p class="text-sm font-semibold text-slate-900 mb-3 uppercase tracking-wider">Technical Stack</p>
-                    <div class="flex flex-wrap gap-2 justify-center md:justify-start">
-                        <span class="px-3 py-1.5 bg-slate-50 text-slate-700 text-xs font-semibold rounded-md border border-slate-200">Pabbly</span>
-                        <span class="px-3 py-1.5 bg-slate-50 text-slate-700 text-xs font-semibold rounded-md border border-slate-200">Google Analytics 4</span>
-                        <span class="px-3 py-1.5 bg-slate-50 text-slate-700 text-xs font-semibold rounded-md border border-slate-200">Power BI</span>
-                        <span class="px-3 py-1.5 bg-slate-50 text-slate-700 text-xs font-semibold rounded-md border border-slate-200">Zoho CRM</span>
-                        <span class="px-3 py-1.5 bg-slate-50 text-slate-700 text-xs font-semibold rounded-md border border-slate-200">SEO</span>
-                        <span class="px-3 py-1.5 bg-slate-50 text-slate-700 text-xs font-semibold rounded-md border border-slate-200">Figma</span>
+            </div>
+
+            <!-- Current Role Image Card -->
+            <div class="rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm col-span-1 md:col-span-1 lg:col-span-2 flex flex-col justify-between card-hover relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                <!-- Background Image & Overlay -->
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="Workspace">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/95 via-brand-dark/60 to-transparent"></div>
+                
+                <div class="relative z-10 flex justify-between items-start h-full flex-col">
+                    <div class="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/20 rounded-full text-xs font-bold text-white mb-4">Current Role</div>
+                    <div>
+                        <h3 class="text-xl md:text-2xl font-bold font-display text-white mb-1">Digital Marketing Specialist</h3>
+                        <p class="text-sm text-brand-100 font-medium">@ Om Space Rocket & Exploration</p>
                     </div>
                 </div>
             </div>
+
+            <!-- Stat 1: 460K+ Reach (from May Case Study) -->
+            <div class="bg-brand-dark rounded-3xl p-6 md:p-8 border border-slate-800 shadow-lg col-span-1 flex flex-col items-center justify-center text-center card-hover relative overflow-hidden" data-aos="fade-up" data-aos-delay="150">
+                <div class="absolute -right-4 -bottom-4 w-32 h-32 bg-brand-500/20 rounded-full blur-3xl"></div>
+                <h2 class="text-5xl md:text-6xl font-black font-display text-white mb-2 relative z-10">460<span class="text-brand-500">K+</span></h2>
+                <p class="text-xs text-slate-400 font-medium relative z-10 uppercase tracking-wide">Ecosystem Reach</p>
+            </div>
+
+            <!-- Stat 2: +320% Traffic Growth (from June Case Study) -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm col-span-1 flex flex-col items-center justify-center text-center card-hover" data-aos="fade-up" data-aos-delay="200">
+                <h2 class="text-5xl md:text-6xl font-black font-display text-brand-dark mb-2"><span class="text-brand-500">+</span>320<span class="text-brand-500">%</span></h2>
+                <p class="text-xs text-slate-500 font-medium uppercase tracking-wide">Traffic Growth</p>
+            </div>
+
+            <!-- Tech Stack Card -->
+            <div class="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm col-span-1 md:col-span-3 lg:col-span-2 flex flex-col justify-between card-hover" data-aos="fade-up" data-aos-delay="250">
+                <div class="flex justify-between items-start mb-6">
+                    <h3 class="text-[10px] font-bold text-slate-400 uppercase tracking-widest bg-slate-50 px-3 py-1 rounded-full border border-slate-100">Technical Arsenal</h3>
+                </div>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="px-4 py-2 bg-slate-50 border border-slate-200 text-brand-dark rounded-xl text-sm font-semibold hover:border-brand-500 hover:text-brand-500 transition-colors shadow-sm cursor-default">Pabbly</span>
+                    <span class="px-4 py-2 bg-slate-50 border border-slate-200 text-brand-dark rounded-xl text-sm font-semibold hover:border-brand-500 hover:text-brand-500 transition-colors shadow-sm cursor-default">Google Analytics 4</span>
+                    <span class="px-4 py-2 bg-slate-50 border border-slate-200 text-brand-dark rounded-xl text-sm font-semibold hover:border-brand-500 hover:text-brand-500 transition-colors shadow-sm cursor-default">Power BI</span>
+                    <span class="px-4 py-2 bg-slate-50 border border-slate-200 text-brand-dark rounded-xl text-sm font-semibold hover:border-brand-500 hover:text-brand-500 transition-colors shadow-sm cursor-default">Zoho CRM</span>
+                    <span class="px-4 py-2 bg-slate-50 border border-slate-200 text-brand-dark rounded-xl text-sm font-semibold hover:border-brand-500 hover:text-brand-500 transition-colors shadow-sm cursor-default">Advanced SEO</span>
+                    <span class="px-4 py-2 bg-slate-50 border border-slate-200 text-brand-dark rounded-xl text-sm font-semibold hover:border-brand-500 hover:text-brand-500 transition-colors shadow-sm cursor-default">Figma</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Projects / Work Grid -->
     <section id="work" class="py-24">
         <div class="max-w-7xl mx-auto px-6">
             
@@ -400,7 +444,6 @@
         </div>
     </section>
 
-    <!-- Experience Timeline -->
     <section id="experience" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-4xl mx-auto px-6">
             <div class="mb-16 text-center md:text-left" data-aos="fade-up">
@@ -477,9 +520,9 @@
                         </div>
                         <p class="text-slate-700 font-medium mb-4">Olcademy, Stellar8Labs & VR Academy</p>
                         <ul class="space-y-2 text-slate-500 text-sm leading-relaxed">
-                            <li>• <strong>Olcademy:</strong> SEO optimization (Score 70+); developed Gen Z blog strategies.</li>
-                            <li>• <strong>Stellar8Labs:</strong> Fixed 15+ technical SEO issues; grew LinkedIn followers by 15%.</li>
-                            <li>• <strong>VR Academy:</strong> High School Teacher achieving 100% pass rate.</li>
+                            <li>• <strong class="text-gray-300">Olcademy:</strong> SEO optimization (Score 70+); developed Gen Z blog strategies.</li>
+                            <li>• <strong class="text-gray-300">Stellar8Labs:</strong> Fixed 15+ technical SEO issues; grew LinkedIn followers by 15%.</li>
+                            <li>• <strong class="text-gray-300">VR Academy:</strong> High School Teacher achieving 100% pass rate.</li>
                         </ul>
                     </div>
                 </div>
@@ -488,7 +531,6 @@
         </div>
     </section>
 
-    <!-- Education Section -->
     <section id="education" class="py-24 bg-white border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-dark mb-12 text-center md:text-left" data-aos="fade-up">Education</h2>
@@ -521,7 +563,6 @@
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section id="certifications" class="py-24 bg-slate-50 border-t border-slate-200">
         <div class="max-w-7xl mx-auto px-6">
             <h2 class="text-3xl md:text-4xl font-display font-bold text-brand-dark mb-12 text-center md:text-left" data-aos="fade-up">Licenses & Certifications</h2>
@@ -596,7 +637,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="py-16 bg-brand-dark text-slate-400 text-center border-t-4 border-brand-500 relative overflow-hidden">
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[40%] h-[100px] bg-brand-500 filter blur-[100px] opacity-20 pointer-events-none"></div>
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center relative z-10">
